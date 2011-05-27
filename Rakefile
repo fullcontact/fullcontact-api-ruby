@@ -14,10 +14,10 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "ruby-rainmaker"
-  gem.homepage = "http://github.com/brandonmwest/ruby-rainmaker"
+  gem.name = "rainmaker"
+  gem.homepage = "http://github.com/brandonmwest/rainmaker"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
+  gem.summary = %Q{Wrapper for the rainmaker API}
   gem.description = %Q{TODO: longer description of your gem}
   gem.email = "brawest@gmail.com"
   gem.authors = ["Brandon M. West"]
@@ -47,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "ruby-rainmaker #{version}"
+  rdoc.title = "rainmaker #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
