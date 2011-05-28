@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/brandonmwest/rainmaker"
   gem.license = "MIT"
   gem.summary = %Q{Wrapper for the rainmaker API}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.description = %Q{Wrapper for the rainmaker.cc API}
   gem.email = "brawest@gmail.com"
   gem.authors = ["Brandon M. West"]
   # dependencies defined in Gemfile

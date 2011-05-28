@@ -17,8 +17,7 @@ module RubyRainmaker
       }
 
       Faraday.new(options) do |builder|
-        builder.use Faraday::Request::MultipartWithFile
-        builder.use Faraday::Request::Multipart
+         builder.use Faraday::Request::Multipart
         builder.use Faraday::Request::UrlEncoded
         builder.use Faraday::Request::Gateway, gateway if gateway
         builder.use Faraday::Response::RaiseHttp4xx

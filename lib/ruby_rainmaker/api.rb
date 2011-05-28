@@ -1,7 +1,7 @@
 require 'ruby_rainmaker/connection'
 require 'ruby_rainmaker/request'
 
-module Twitter
+module RubyRainmaker
   # @private
   class API
     # @private

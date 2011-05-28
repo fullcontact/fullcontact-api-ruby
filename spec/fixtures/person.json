@@ -1,0 +1,168 @@
+{
+ "status": 200,
+ "contactInfo": {
+ "familyName": "Lorang",
+ "givenName": "Bart",
+ "fullName": "Bart Lorang",
+ "emailAddresses":
+ [
+   "lorangb@gmail.com"
+ ]
+},
+ "interests": {
+ "Football": true,
+ "Sports & Recreation": true,
+ "Business": true,
+ "Online News": true,
+ "Baseball": true,
+ "Tennis": true,
+ "News & Current Events": true,
+ "Basketball": true,
+ "Blogging": true,
+ "Social Networks": true,
+ "Online Journals": true,
+ "Golf": true,
+ "Technology": true
+},
+ "organizations":
+[
+ {
+   "name": "Forseti Holdings, LLC",
+   "title": "Chairman & CEO",
+   "startDate": "2010-01"
+ },
+ {
+   "name": "Rainmaker Technologies",
+   "title": "CEO",
+   "startDate": "2010-01"
+ },
+ {
+   "name": "Forseti Holdings LLC",
+   "title": "Chairman & CEO",
+   "isPrimary": true
+ },
+ {
+   "name": "CloudCenter LLC",
+   "title": "Chairman & CEO",
+   "isPrimary": false
+ },
+ {
+   "name": "DTS",
+   "isPrimary": false
+ }
+],
+ "demographics": {
+ "influencerScore": "81-90",
+ "householdIncome": "250k+",
+ "age": "31",
+ "homeOwnerStatus": "Own",
+ "locationGeneral": "Denver, Colorado, United States",
+ "children": "No",
+ "gender": "Male",
+ "maritalStatus": "Single"
+},
+ "socialProfiles":
+[
+ {
+   "type": "facebook",
+   "url": "http://www.facebook.com/bart.lorang",
+   "id": "651620441",
+   "birthday": "08/16/1979",
+   "username": "bart.lorang"
+ },
+ {
+   "url": "http://twitter.com/lorangb",
+   "id": "5998422",
+   "type": "twitter",
+   "username": "lorangb"
+ },
+ {
+   "url": "http://www.linkedin.com/in/bartlorang",
+   "id": "bartlorang",
+   "type": "linkedin",
+   "username": "bartlorang"
+ },
+ {
+   "url": "http://about.me/lorangb",
+   "type": "about.me"
+ },
+ {
+   "url": "http://www.flickr.com/people/39267654@N00/",
+   "id": "39267654@N00",
+   "type": "flickr"
+ },
+ {
+   "url": "http://profiles.friendster.com/6986589",
+   "type": "friendster"
+ },
+ {
+   "url": "https://profiles.google.com/lorangb",
+   "id": "lorangb",
+   "type": "google profile",
+   "username": "lorangb"
+ },
+ {
+   "url": "http://www.myspace.com/137200880",
+   "type": "myspace"
+ },
+ {
+   "url": "http://picasaweb.google.com/lorangb",
+   "type": "picasa"
+ },
+ {
+   "url": "http://tungle.me/bartlorang",
+   "id": "bartlorang",
+   "type": "tungle.me",
+   "username": "bartlorang"
+ },
+ {
+   "url": "http://youtube.com/lorangb",
+   "type": "youtube"
+ },
+ {
+   "type": "friendster",
+   "url": "http://profiles.friendster.com/6986589"
+ }
+]
+ "photos":
+[
+ {
+   "url": "http://graph.facebook.com/651620441/picture?type=large",
+   "type": "facebook"
+ },
+ {
+   "url": "https://lh5.googleusercontent.com/-EkI-dQC-4iM/AAAAAAAAAAI/AAAAAAAAAAA/o2NExlQVurA/photo.jpg?sz=200",
+   "type": "google profile"
+ },
+ {
+   "url": "http://profile.ak.fbcdn.net/hprofile-ak-snc4/41508_651620441_4210927_n.jpg",
+   "type": "facebook"
+ },
+ {
+   "url": "http://photos.friendster.com/photos/98/56/6986589/4262265956117t.jpg",
+   "type": "friendster"
+ },
+ {
+   "url": "http://c2.ac-images.myspacecdn.com/images01/128/l_d7f2149dcb61b290b25232bf4c7968b9.jpg",
+   "type": "myspace"
+ },
+ {
+   "url": "http://images.plaxo.com/fetch_image?path=249108119662_0_-413637613",
+   "type": "plaxo"
+
+ },
+ {
+   "url": "http://a1.twimg.com/profile_images/712689472/Me.png",
+   "type": "twitter"
+
+ },
+ {
+   "type": "gravatar",
+   "url": "https://secure.gravatar.com/avatar/956b7dca7c77a12c43ebe9ae09dfaba8"
+ },
+ {
+   "type": "linkedin",
+   "url": "http://media.linkedin.com/mpr/mpr/shrink_80_80/p/2/000/086/2c8/2444fae.jpg"
+ }
+],
+}

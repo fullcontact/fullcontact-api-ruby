@@ -1,5 +1,4 @@
 require 'faraday'
-require 'ruby_rainmaker/version'
 
 module RubyRainmaker
   # Defines constants and methods related to configuration
