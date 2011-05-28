@@ -1,4 +1,5 @@
 require 'helper'
+require 'multi_json'
 
 describe RubyRainmaker do
   after do
@@ -14,14 +15,14 @@ describe RubyRainmaker do
     end
 
     it "should get the correct resource" do
-      RubyRainmaker.person('lorangb@gmail.com')
+      RubyRainmaker.person(:email => "lorangb@gmail.com")
       a_get("person.json").
         with(:query => {:email => "lorangb@gmail.com"}).
         should have_been_made
     end
 
     it "should return the same results as a client" do
-      RubyRainmaker.person('lorangb@gmail.com').should == RubyRainmaker::Client.new.person('lorangb@gmail.com')
+      RubyRainmaker.person(:email => "lorangb@gmail.com").should == RubyRainmaker::Client.new.person('lorangb@gmail.com')
     end
 
   end

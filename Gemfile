@@ -16,4 +16,5 @@ group :development do
 	gem "faraday_middleware"
 	gem "simplecov"
 	gem "webmock"
+	gem "multi_json"
 end
