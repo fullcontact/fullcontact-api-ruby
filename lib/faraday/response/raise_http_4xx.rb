@@ -18,7 +18,7 @@ module Faraday
         raise RubyRainmaker::Invalid.new(error_message(env), env[:response_headers])
     end
 
-    private
+    #private
 
     def error_message(env)
       "#{env[:method].to_s.upcase} #{env[:url].to_s}: #{env[:status]}#{error_body(env[:body])}"

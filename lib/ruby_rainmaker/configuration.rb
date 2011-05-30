@@ -6,7 +6,7 @@ module RubyRainmaker
     # An array of valid keys in the options hash when configuring a {RubyRainmaker::API}
     VALID_OPTIONS_KEYS = [
       :adapter,
-      :consumer_key,
+      :api_key,
       :endpoint,
       :format,
       :gateway,
@@ -26,7 +26,7 @@ module RubyRainmaker
     DEFAULT_ADAPTER = Faraday.default_adapter
 
     # By default, don't set an application key
-    DEFAULT_CONSUMER_KEY = nil
+    DEFAULT_API_KEY = nil
 
     # The endpoint that will be used to connect if none is set
     #
@@ -68,7 +68,7 @@ module RubyRainmaker
     # Reset all configuration options to defaults
     def reset
       self.adapter            = DEFAULT_ADAPTER
-      self.consumer_key       = DEFAULT_CONSUMER_KEY
+      self.api_key      	  = DEFAULT_API_KEY
       self.endpoint           = DEFAULT_ENDPOINT
       self.format             = DEFAULT_FORMAT
       self.proxy              = DEFAULT_PROXY

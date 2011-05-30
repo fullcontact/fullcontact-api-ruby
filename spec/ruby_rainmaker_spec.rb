@@ -1,5 +1,4 @@
 require 'helper'
-require 'multi_json'
 
 describe RubyRainmaker do
   after do
@@ -9,20 +8,22 @@ describe RubyRainmaker do
   context "when delegating to a client" do
 
     before do
-      stub_get("person.json").
-        with(:query => {:email => "lorangb@gmail.com"}).
-        to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+		RubyRainmaker.configure do |config|
+			config.api_key = "api_key"
+		end
+
+         stub_request(:get, "http://api.rainmaker.cc/v1/person.json?apiKey=api_key&email=lorangb@gmail.com").
+         with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Rainmaker Ruby Gem'}).
+         to_return(:status => 200, :body => "", :headers => {})
     end
 
     it "should get the correct resource" do
       RubyRainmaker.person(:email => "lorangb@gmail.com")
-      a_get("person.json").
-        with(:query => {:email => "lorangb@gmail.com"}).
-        should have_been_made
+      a_get("person.json").with(:query => {:api_key => "api_key", :email => "lorangb@gmail.com"}).should have_been_made
     end
 
     it "should return the same results as a client" do
-      RubyRainmaker.person(:email => "lorangb@gmail.com").should == RubyRainmaker::Client.new.person('lorangb@gmail.com')
+      RubyRainmaker.person(:email => "lorangb@gmail.com").should == RubyRainmaker::Client.new.person(:email => "lorangb@gmail.com")
     end
 
   end

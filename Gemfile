@@ -17,4 +17,6 @@ group :development do
 	gem "simplecov"
 	gem "webmock"
 	gem "multi_json"
+	gem "hashie"
+	gem "rash"
 end

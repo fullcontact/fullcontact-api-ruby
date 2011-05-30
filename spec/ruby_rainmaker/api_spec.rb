@@ -29,7 +29,7 @@ describe RubyRainmaker::API do
 
       before do
         @configuration = {
-          :consumer_key => 'CK',
+          :api_key => 'api_key',
           :adapter => :typhoeus,
           :endpoint => 'http://tumblr.com/',
           :gateway => 'apigee-1111.apigee.com',
