@@ -4,7 +4,7 @@ module RubyRainmaker
       # Returns extended information for a given email
       #
        def person(email)
-        response = get('person', email)
+        response = get('person', :email => email)
         format.to_s.downcase == 'xml' ? response['user'] : response
       end
   	end

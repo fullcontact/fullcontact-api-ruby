@@ -12,18 +12,19 @@ describe RubyRainmaker do
 			config.api_key = "api_key"
 		end
 
-         stub_request(:get, "http://api.rainmaker.cc/v1/person.json?apiKey=api_key&email=lorangb@gmail.com").
-         with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Rainmaker Ruby Gem'}).
-         to_return(:status => 200, :body => "", :headers => {})
+		stub_get("person.json").
+		  with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
+		  to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+
     end
 
     it "should get the correct resource" do
-      RubyRainmaker.person(:email => "lorangb@gmail.com")
-      a_get("person.json").with(:query => {:api_key => "api_key", :email => "lorangb@gmail.com"}).should have_been_made
+      RubyRainmaker.person("brawest@gmail.com")
+      a_get("person.json").with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).should have_been_made
     end
 
     it "should return the same results as a client" do
-      RubyRainmaker.person(:email => "lorangb@gmail.com").should == RubyRainmaker::Client.new.person(:email => "lorangb@gmail.com")
+      RubyRainmaker.person("brawest@gmail.com").should == RubyRainmaker::Client.new.person("brawest@gmail.com")
     end
 
   end

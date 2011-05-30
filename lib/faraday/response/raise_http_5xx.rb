@@ -7,18 +7,18 @@ module Faraday
     def on_complete(env)
       case env[:status].to_i
       when 500
-        raise Twitter::InternalServerError.new(error_message(env, "Something is technically wrong."), env[:response_headers])
+        raise RubyRainmaker::InternalServerError.new(error_message(env, "Internal server error."), env[:response_headers])
       when 502
-        raise Twitter::BadGateway.new(error_message(env, "Twitter is down or being upgraded."), env[:response_headers])
+        raise RubyRainmaker::BadGateway.new(error_message(env, "Rainmaker is down or being upgraded."), env[:response_headers])
       when 503
-        raise Twitter::ServiceUnavailable.new(error_message(env, "(__-){ Twitter is over capacity."), env[:response_headers])
+        raise RubyRainmaker::ServiceUnavailable.new(error_message(env, "Service unavailable."), env[:response_headers])
       end
     end
 
     private
 
     def error_message(env, body=nil)
-      "#{env[:method].to_s.upcase} #{env[:url].to_s}: #{[env[:status].to_s + ':', body].compact.join(' ')} Check http://status.twitter.com/ for updates on the status of the Twitter service."
+      "#{env[:method].to_s.upcase} #{env[:url].to_s}: #{[env[:status].to_s + ':', body].compact.join(' ')} Check http://api.rainmaker.cc/ for updates on the status of the Rainmaker service."
     end
   end
 end

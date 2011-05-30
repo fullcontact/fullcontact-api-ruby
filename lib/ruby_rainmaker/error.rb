@@ -1,4 +1,4 @@
-module Rainmaker
+module RubyRainmaker
   # Custom error class for rescuing from all Rainmaker errors
   class Error < StandardError
     attr_reader :http_headers
@@ -21,6 +21,9 @@ module Rainmaker
 
   # Raised when Rainmaker returns the HTTP status code 403
   class Forbidden < Error; end
+
+  # Raised when Rainmaker returns the HTTP status code 404
+  class NotFound < Error; end
 
   # Raised when Rainmaker returns the HTTP status code 422
   class Invalid < Error; end
