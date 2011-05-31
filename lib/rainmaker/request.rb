@@ -1,4 +1,4 @@
-module RubyRainmaker
+module Rainmaker
   # Defines HTTP request methods
   module Request
     # Perform an HTTP GET request
@@ -10,7 +10,7 @@ module RubyRainmaker
 
     # Perform an HTTP request
     def request(method, path, options, raw=false)
-		options[:apiKey] = RubyRainmaker.options[:api_key]
+		options[:apiKey] = Rainmaker.options[:api_key]
       	response = connection(raw).send(method) do |request|
         request.url(formatted_path(path), options)
       end

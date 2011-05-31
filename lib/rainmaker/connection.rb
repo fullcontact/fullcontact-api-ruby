@@ -3,7 +3,7 @@ require 'faraday/request/gateway'
 require 'faraday/response/raise_http_4xx'
 require 'faraday/response/raise_http_5xx'
 
-module RubyRainmaker
+module Rainmaker
   # @private
   module Connection
     private

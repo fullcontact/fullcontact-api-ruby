@@ -1,4 +1,4 @@
-module RubyRainmaker
+module Rainmaker
   class Client
     module Person
       # Returns extended information for a given email

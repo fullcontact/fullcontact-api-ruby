@@ -1,4 +1,4 @@
-module RubyRainmaker
+module Rainmaker
   # Custom error class for rescuing from all Rainmaker errors
   class Error < StandardError
     attr_reader :http_headers

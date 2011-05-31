@@ -1,9 +1,9 @@
 require 'faraday'
 
-module RubyRainmaker
+module Rainmaker
   # Defines constants and methods related to configuration
   module Configuration
-    # An array of valid keys in the options hash when configuring a {RubyRainmaker::API}
+    # An array of valid keys in the options hash when configuring a {Rainmaker::API}
     VALID_OPTIONS_KEYS = [
       :adapter,
       :api_key,

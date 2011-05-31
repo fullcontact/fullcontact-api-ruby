@@ -1,7 +1,7 @@
-require 'ruby_rainmaker/connection'
-require 'ruby_rainmaker/request'
+require 'rainmaker/connection'
+require 'rainmaker/request'
 
-module RubyRainmaker
+module Rainmaker
   # @private
   class API
     # @private
@@ -9,7 +9,7 @@ module RubyRainmaker
 
     # Creates a new API
     def initialize(options={})
-      options = RubyRainmaker.options.merge(options)
+      options = Rainmaker.options.merge(options)
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end

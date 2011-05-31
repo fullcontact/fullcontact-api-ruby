@@ -5,17 +5,17 @@ require 'ruby_rainmaker/configuration'
 require 'ruby_rainmaker/api'
 require 'ruby_rainmaker/client'
 
-module RubyRainmaker
+module Rainmaker
   extend Configuration
 
-  # Alias for RubyRainmaker::Client.new
+  # Alias for Rainmaker::Client.new
   #
-  # @return [RubyRainmaker::Client]
+  # @return [Rainmaker::Client]
   def self.client(options={})
-    RubyRainmaker::Client.new(options)
+    Rainmaker::Client.new(options)
   end
 
-  # Delegate to RubyRainmaker::Client
+  # Delegate to Rainmaker::Client
   def self.method_missing(method, *args, &block)
     return super unless client.respond_to?(method)
     client.send(method, *args, &block)
