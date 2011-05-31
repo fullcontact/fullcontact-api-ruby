@@ -17,11 +17,11 @@ module Rainmaker
       }
 
       Faraday.new(options) do |builder|
-        builder.use Faraday::Request::Multipart
-        builder.use Faraday::Request::UrlEncoded
+    	builder.use Faraday::Response::Logger
+		builder.use Faraday::Request::UrlEncoded
         builder.use Faraday::Request::Gateway, gateway if gateway
-        builder.use Faraday::Response::RaiseHttp4xx
-        builder.use Faraday::Response::Rashify unless raw
+		builder.use Faraday::Response::RaiseHttp4xx
+		builder.use Faraday::Response::Rashify unless raw
         unless raw
           case format.to_s.downcase
           when 'json'

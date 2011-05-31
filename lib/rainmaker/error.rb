@@ -7,10 +7,6 @@ module Rainmaker
       @http_headers = Hash[http_headers]
       super message
     end
-
-    def retry_after
-      [(ratelimit_reset - Time.now).ceil, 0].max
-    end
   end
 
   # Raised when Rainmaker returns the HTTP status code 400
