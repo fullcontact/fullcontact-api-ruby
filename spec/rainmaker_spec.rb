@@ -20,7 +20,9 @@ describe Rainmaker do
 
     it "should get the correct resource" do
       Rainmaker.person("brawest@gmail.com")
-      a_get("person.json").with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).should have_been_made
+      a_get("person.json")
+	  .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
+	  .should have_been_made
     end
 
     it "should return the same results as a client" do

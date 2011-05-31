@@ -7,11 +7,11 @@ module Faraday
     def on_complete(env)
       case env[:status].to_i
       when 500
-        raise RubyRainmaker::InternalServerError.new(error_message(env, "Internal server error."), env[:response_headers])
+        raise Rainmaker::InternalServerError.new(error_message(env, "Internal server error."), env[:response_headers])
       when 502
-        raise RubyRainmaker::BadGateway.new(error_message(env, "Rainmaker is down or being upgraded."), env[:response_headers])
+        raise Rainmaker::BadGateway.new(error_message(env, "Rainmaker is down or being upgraded."), env[:response_headers])
       when 503
-        raise RubyRainmaker::ServiceUnavailable.new(error_message(env, "Service unavailable."), env[:response_headers])
+        raise Rainmaker::ServiceUnavailable.new(error_message(env, "Service unavailable."), env[:response_headers])
       end
     end
 

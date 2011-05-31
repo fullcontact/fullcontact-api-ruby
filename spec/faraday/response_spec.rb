@@ -1,22 +1,24 @@
 require 'helper'
+require 'faraday'
+require 'rainmaker'
 
 describe Faraday::Response do
   before do
-	RubyRainmaker.configure do |config|
+	Rainmaker.configure do |config|
 		config.api_key = "api_key"
 	end
-    @client = RubyRainmaker::Client.new
+    @client = Rainmaker::Client.new
   end
 
   {
-    400 => RubyRainmaker::BadRequest,
-    401 => RubyRainmaker::Unauthorized,
-    403 => RubyRainmaker::Forbidden,
-    404 => RubyRainmaker::NotFound,
-    422 => RubyRainmaker::Invalid,
-    500 => RubyRainmaker::InternalServerError,
-    502 => RubyRainmaker::BadGateway,
-    503 => RubyRainmaker::ServiceUnavailable,
+    400 => Rainmaker::BadRequest,
+    401 => Rainmaker::Unauthorized,
+    403 => Rainmaker::Forbidden,
+    404 => Rainmaker::NotFound,
+    422 => Rainmaker::Invalid,
+    500 => Rainmaker::InternalServerError,
+    502 => Rainmaker::BadGateway,
+    503 => Rainmaker::ServiceUnavailable,
   }.each do |status, exception|
     if (status >= 500)
       context "when HTTP status is #{status}" do

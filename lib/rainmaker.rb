@@ -1,9 +1,9 @@
 require "faraday"
 require "faraday_middleware"
-require 'ruby_rainmaker/error'
-require 'ruby_rainmaker/configuration'
-require 'ruby_rainmaker/api'
-require 'ruby_rainmaker/client'
+require 'rainmaker/error'
+require 'rainmaker/configuration'
+require 'rainmaker/api'
+require 'rainmaker/client'
 
 module Rainmaker
   extend Configuration

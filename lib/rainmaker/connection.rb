@@ -17,7 +17,6 @@ module Rainmaker
       }
 
       Faraday.new(options) do |builder|
-		builder.adapter Faraday.default_adapter
         builder.use Faraday::Request::Multipart
         builder.use Faraday::Request::UrlEncoded
         builder.use Faraday::Request::Gateway, gateway if gateway

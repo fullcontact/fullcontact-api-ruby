@@ -5,7 +5,7 @@ module Rainmaker
       #
        def person(email)
         response = get('person', :email => email)
-        format.to_s.downcase == 'xml' ? response['user'] : response
+        format.to_s.downcase == 'xml' ? response['person'] : response
       end
   	end
   end

@@ -1,13 +1,13 @@
 require 'helper'
 
-describe RubyRainmaker::API do
+describe Rainmaker::API do
   before do
-    @keys = RubyRainmaker::Configuration::VALID_OPTIONS_KEYS
+    @keys = Rainmaker::Configuration::VALID_OPTIONS_KEYS
   end
 
   context "with module configuration" do
      before do
-      RubyRainmaker.configure do |config|
+      Rainmaker.configure do |config|
         @keys.each do |key|
           config.send("#{key}=", key)
         end
@@ -15,11 +15,11 @@ describe RubyRainmaker::API do
     end
 
     after do
-      RubyRainmaker.reset
+      Rainmaker.reset
     end
 
     it "should inherit module configuration" do
-      api = RubyRainmaker::API.new
+      api = Rainmaker::API.new
       @keys.each do |key|
         api.send(key).should == key
       end
@@ -42,7 +42,7 @@ describe RubyRainmaker::API do
       context "during initialization"
 
         it "should override module configuration" do
-          api = RubyRainmaker::API.new(@configuration)
+          api = Rainmaker::API.new(@configuration)
           @keys.each do |key|
             api.send(key).should == @configuration[key]
           end
@@ -51,7 +51,7 @@ describe RubyRainmaker::API do
       context "after initilization" do
 
         it "should override module configuration after initialization" do
-          api = RubyRainmaker::API.new
+          api = Rainmaker::API.new
           @configuration.each do |key, value|
             api.send("#{key}=", value)
           end

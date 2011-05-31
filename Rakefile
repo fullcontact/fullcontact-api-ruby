@@ -1,53 +1,25 @@
-# encoding: utf-8
+#!/usr/bin/env rake
 
-require 'rubygems'
 require 'bundler'
-begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
-end
-require 'rake'
+Bundler::GemHelper.install_tasks
 
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "rainmaker"
-  gem.homepage = "http://github.com/brandonmwest/rainmaker"
-  gem.license = "MIT"
-  gem.summary = %Q{Wrapper for the rainmaker API}
-  gem.description = %Q{Wrapper for the rainmaker.cc API}
-  gem.email = "brawest@gmail.com"
-  gem.authors = ["Brandon M. West"]
-  # dependencies defined in Gemfile
-end
-Jeweler::RubygemsDotOrgTasks.new
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec)
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
+task :test => :spec
+task :default => :spec
 
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
-end
-
-task :default => :test
-
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "rainmaker #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+namespace :doc do
+  require 'yard'
+  YARD::Rake::YardocTask.new do |task|
+    task.files   = ['HISTORY.md', 'LICENSE.md', 'lib/**/*.rb']
+    task.options = [
+      '--protected',
+      '--output-dir', 'doc',
+      '--tag', 'format:Supported formats',
+      '--tag', 'authenticated:Requires Authentication',
+      '--tag', 'rate_limited:Rate Limited',
+      '--markup', 'markdown',
+    ]
+  end
 end
