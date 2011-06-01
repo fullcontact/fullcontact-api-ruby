@@ -11,10 +11,12 @@ module Rainmaker
     # Perform an HTTP request
     def request(method, path, options, raw=false)
 		options[:apiKey] = Rainmaker.options[:api_key]
-      	response = connection(raw).send(method) do |request|
-        request.url(formatted_path(path), options)
-      end
-      raw ? response : response.body
+
+		response = connection(raw).send(method) do |request|
+			request.url(formatted_path(path), options)
+      	end
+
+		raw ? response : response.body
     end
 
     def formatted_path(path)

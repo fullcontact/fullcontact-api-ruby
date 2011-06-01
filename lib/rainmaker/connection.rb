@@ -1,7 +1,7 @@
 require 'faraday_middleware'
 require 'faraday/request/gateway'
 require 'faraday/response/rainmaker_errors'
-#require 'faraday/response/raise_http_5xx'
+
 
 module Rainmaker
   # @private
@@ -17,11 +17,9 @@ module Rainmaker
       }
 
       Faraday.new(options) do |builder|
- 		builder.use Faraday::Request::UrlEncoded
+        builder.use Faraday::Request::UrlEncoded
         builder.use Faraday::Request::Gateway, gateway if gateway
-		builder.use Faraday::Response::Logger
-		builder.use Faraday::Response::RainmakerErrors
-		builder.use Faraday::Response::Rashify unless raw
+        builder.use Faraday::Response::Rashify unless raw
         unless raw
           case format.to_s.downcase
           when 'json'
@@ -30,7 +28,8 @@ module Rainmaker
             builder.use Faraday::Response::ParseXml
           end
         end
-        builder.adapter(adapter)
+        builder.use Faraday::Response::RainmakerErrors
+        builder.adapter Faraday.default_adapter
       end
     end
   end
