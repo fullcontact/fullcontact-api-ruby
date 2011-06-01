@@ -29,4 +29,5 @@ Usage Examples
 Copyright
 ---------
 Copyright (c) 2010 Brandon West
-See [LICENSE](https://github.com/brandonmwest/twitter/blob/master/LICENSE.md) for details.
+
+See [LICENSE](https://github.com/brandonmwest/rainmaker/blob/master/LICENSE.md) for details.
