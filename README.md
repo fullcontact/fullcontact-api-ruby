@@ -28,6 +28,6 @@ Usage Examples
 
 Copyright
 ---------
-Copyright (c) 2010 Brandon West
+Copyright (c) 2011 Brandon West
 
 See [LICENSE](https://github.com/brandonmwest/rainmaker/blob/master/LICENSE.md) for details.
