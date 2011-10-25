@@ -1,14 +1,14 @@
 Rainmaker Ruby Gem
 ====================
-A Ruby wrapper for the [Rainmaker API](http://api.rainmaker.cc) 
+A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Installation
 ------------
-    gem install rainmaker
+    gem install fullcontact
 
 Documentation
 -------------
-[http://rdoc.info/gems/rainmaker](http://rdoc.info/gems/rainmaker)
+[http://rdoc.info/gems/rainmaker](http://rdoc.info/gems/fullcontact)
 
 Usage Examples
 --------------
@@ -16,12 +16,12 @@ Usage Examples
     require "rainmaker"
 
 	# This could go in an initializer
-	Rainmaker.configure do |config|
-		config.api_key = "rainmaker_api_key_goes_here"
+	FullContact.configure do |config|
+		config.api_key = "fullcontact_api_key_goes_here"
 	end
 	
     # Get information about an email address
-    person = Rainmaker.person("brawest@gmail.com")
+    person = FullContact.person("brawest@gmail.com")
 
 	# Get person's family_name
 	puts person.contact_info.family_name

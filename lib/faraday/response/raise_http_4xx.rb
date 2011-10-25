@@ -7,15 +7,15 @@ module Faraday
     def on_complete(env)
       case env[:status].to_i
       when 400
-        raise Rainmaker::BadRequest.new(error_message(env), env[:response_headers])
+        raise FullContact::BadRequest.new(error_message(env), env[:response_headers])
       when 401
-        raise Rainmaker::Unauthorized.new(error_message(env), env[:response_headers])
+        raise FullContact::Unauthorized.new(error_message(env), env[:response_headers])
       when 403
-        raise Rainmaker::Forbidden.new(error_message(env), env[:response_headers])
+        raise FullContact::Forbidden.new(error_message(env), env[:response_headers])
       when 404
-        raise Rainmaker::NotFound.new(error_message(env), env[:response_headers])
+        raise FullContact::NotFound.new(error_message(env), env[:response_headers])
       when 422
-        raise Rainmaker::Invalid.new(error_message(env), env[:response_headers])
+        raise FullContact::Invalid.new(error_message(env), env[:response_headers])
     end
 
 

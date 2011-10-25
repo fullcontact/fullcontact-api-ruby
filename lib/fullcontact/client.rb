@@ -1,14 +1,14 @@
-module Rainmaker
-  # Wrapper for the Rainmaker REST API
+module FullContact
+  # Wrapper for the FullContact REST API
 
   class Client < API
     # Require client method modules after initializing the Client class in
     # order to avoid a superclass mismatch error, allowing those modules to be
     # Client-namespaced.
-    require 'rainmaker/client/person'
+    require 'fullcontact/client/person'
 
     alias :api_endpoint :endpoint
 
-    include Rainmaker::Client::Person
+    include FullContact::Client::Person
   end
 end

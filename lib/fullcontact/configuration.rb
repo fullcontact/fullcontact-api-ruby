@@ -1,9 +1,9 @@
 require 'faraday'
 
-module Rainmaker
+module FullContact
   # Defines constants and methods related to configuration
   module Configuration
-    # An array of valid keys in the options hash when configuring a {Rainmaker::API}
+    # An array of valid keys in the options hash when configuring a {FullContact::API}
     VALID_OPTIONS_KEYS = [
       :adapter,
       :api_key,
@@ -30,7 +30,7 @@ module Rainmaker
 
     # The endpoint that will be used to connect if none is set
     #
-    DEFAULT_ENDPOINT = 'http://api.rainmaker.cc/v1/'.freeze
+    DEFAULT_ENDPOINT = 'https://api.fullcontact.cc/v1/'.freeze
 
     # The response format appended to the path and sent in the 'Accept' header if none is set
     #
@@ -41,7 +41,7 @@ module Rainmaker
     DEFAULT_PROXY = nil
 
     # The user agent that will be sent to the API endpoint if none is set
-    DEFAULT_USER_AGENT = "Rainmaker Ruby Gem".freeze
+    DEFAULT_USER_AGENT = "FullContact Ruby Gem".freeze
 
     DEFAULT_GATEWAY = nil
 

@@ -1,9 +1,9 @@
 require 'faraday_middleware'
 require 'faraday/request/gateway'
-require 'faraday/response/rainmaker_errors'
+require 'faraday/response/fullcontact_errors'
 
 
-module Rainmaker
+module FullContact
   # @private
   module Connection
     private
@@ -28,7 +28,7 @@ module Rainmaker
             builder.use Faraday::Response::ParseXml
           end
         end
-        builder.use Faraday::Response::RainmakerErrors
+        builder.use Faraday::Response::FullContactErrors
         builder.adapter Faraday.default_adapter
       end
     end

@@ -1,4 +1,4 @@
-module Rainmaker
+module FullContact
   class Client
     module Person
       # Returns extended information for a given email

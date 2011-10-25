@@ -1,24 +1,24 @@
 require 'helper'
 require 'faraday'
-require 'rainmaker'
+require 'fullcontact'
 
 describe Faraday::Response do
   before do
-	Rainmaker.configure do |config|
+	FullContact.configure do |config|
 		config.api_key = "api_key"
 	end
-    @client = Rainmaker::Client.new
+    @client = FullContact::Client.new
   end
 
   {
-    400 => Rainmaker::BadRequest,
-    401 => Rainmaker::Unauthorized,
-    403 => Rainmaker::Forbidden,
-    404 => Rainmaker::NotFound,
-    422 => Rainmaker::Invalid,
-    500 => Rainmaker::InternalServerError,
-    502 => Rainmaker::BadGateway,
-    503 => Rainmaker::ServiceUnavailable,
+    400 => FullContact::BadRequest,
+    401 => FullContact::Unauthorized,
+    403 => FullContact::Forbidden,
+    404 => FullContact::NotFound,
+    422 => FullContact::Invalid,
+    500 => FullContact::InternalServerError,
+    502 => FullContact::BadGateway,
+    503 => FullContact::ServiceUnavailable,
   }.each do |status, exception|
     if (status >= 500)
       context "when HTTP status is #{status}" do

@@ -1,21 +1,21 @@
 require "faraday"
 require "faraday_middleware"
-require 'rainmaker/error'
-require 'rainmaker/configuration'
-require 'rainmaker/api'
-require 'rainmaker/client'
+require 'fullcontact/error'
+require 'fullcontact/configuration'
+require 'fullcontact/api'
+require 'fullcontact/client'
 
-module Rainmaker
+module FullContact
   extend Configuration
 
-  # Alias for Rainmaker::Client.new
+  # Alias for FullContact::Client.new
   #
-  # @return [Rainmaker::Client]
+  # @return [FullContact::Client]
   def self.client(options={})
-    Rainmaker::Client.new(options)
+    FullContact::Client.new(options)
   end
 
-  # Delegate to Rainmaker::Client
+  # Delegate to FullContact::Client
   def self.method_missing(method, *args, &block)
     return super unless client.respond_to?(method)
     client.send(method, *args, &block)

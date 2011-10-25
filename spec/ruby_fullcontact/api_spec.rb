@@ -1,13 +1,13 @@
 require 'helper'
 
-describe Rainmaker::API do
+describe FullContact::API do
   before do
-    @keys = Rainmaker::Configuration::VALID_OPTIONS_KEYS
+    @keys = FullContact::Configuration::VALID_OPTIONS_KEYS
   end
 
   context "with module configuration" do
      before do
-      Rainmaker.configure do |config|
+      FullContact.configure do |config|
         @keys.each do |key|
           config.send("#{key}=", key)
         end
@@ -15,11 +15,11 @@ describe Rainmaker::API do
     end
 
     after do
-      Rainmaker.reset
+      FullContact.reset
     end
 
     it "should inherit module configuration" do
-      api = Rainmaker::API.new
+      api = FullContact::API.new
       @keys.each do |key|
         api.send(key).should == key
       end
@@ -42,7 +42,7 @@ describe Rainmaker::API do
       context "during initialization"
 
         it "should override module configuration" do
-          api = Rainmaker::API.new(@configuration)
+          api = FullContact::API.new(@configuration)
           @keys.each do |key|
             api.send(key).should == @configuration[key]
           end
@@ -51,7 +51,7 @@ describe Rainmaker::API do
       context "after initilization" do
 
         it "should override module configuration after initialization" do
-          api = Rainmaker::API.new
+          api = FullContact::API.new
           @configuration.each do |key, value|
             api.send("#{key}=", value)
           end

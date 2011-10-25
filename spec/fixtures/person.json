@@ -13,7 +13,7 @@
       "url": "https://secure.gravatar.com/avatar/b2f65d319b253da9cf92635d8eac808b"
     },
     {
-      "message": "More Data Available - 3rd party credentials required - contact api@rainmaker.cc for more information."
+      "message": "More Data Available - 3rd party credentials required - contact api@fullcontact.cc for more information."
     }
   ],
   "contactInfo": {
@@ -23,11 +23,11 @@
   },
   "demographics": {
     "age": {
-      "message": "More Data Available - 3rd party credentials required - contact api@rainmaker.cc for more information."
+      "message": "More Data Available - 3rd party credentials required - contact api@fullcontact.cc for more information."
     },
     "locationGeneral": "Littleton, Colorado",
     "gender": {
-      "message": "More Data Available - 3rd party credentials required - contact api@rainmaker.cc for more information."
+      "message": "More Data Available - 3rd party credentials required - contact api@fullcontact.cc for more information."
     }
   },
   "socialProfiles": 
@@ -39,10 +39,10 @@
       "username": "brandonmwest"
     },
     {
-      "message": "More Data Available - 3rd party credentials required - contact api@rainmaker.cc for more information."
+      "message": "More Data Available - 3rd party credentials required - contact api@fullcontact.cc for more information."
     },
     {
-      "message": "More Data Available - 3rd party credentials required - contact api@rainmaker.cc for more information."
+      "message": "More Data Available - 3rd party credentials required - contact api@fullcontact.cc for more information."
     }
   ]
 }

@@ -1,7 +1,7 @@
-require 'rainmaker/connection'
-require 'rainmaker/request'
+require 'fullcontact/connection'
+require 'fullcontact/request'
 
-module Rainmaker
+module FullContact
   # @private
   class API
     # @private
@@ -9,7 +9,7 @@ module Rainmaker
 
     # Creates a new API
     def initialize(options={})
-      options = Rainmaker.options.merge(options)
+      options = FullContact.options.merge(options)
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end

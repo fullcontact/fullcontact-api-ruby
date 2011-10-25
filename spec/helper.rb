@@ -6,11 +6,11 @@ SimpleCov.start
 
 
 def a_get(path)
-  a_request(:get, Rainmaker.endpoint + path)
+  a_request(:get, FullContact.endpoint + path)
 end
 
 def stub_get(path)
-  stub_request(:get, Rainmaker.endpoint + path)
+  stub_request(:get, FullContact.endpoint + path)
 end
 
 def fixture_path

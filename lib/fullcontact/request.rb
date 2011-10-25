@@ -1,4 +1,4 @@
-module Rainmaker
+module FullContact
   # Defines HTTP request methods
   module Request
     # Perform an HTTP GET request
@@ -10,7 +10,7 @@ module Rainmaker
 
     # Perform an HTTP request
     def request(method, path, options, raw=false)
-		options[:apiKey] = Rainmaker.options[:api_key]
+		options[:apiKey] = FullContact.options[:api_key]
 
 		response = connection(raw).send(method) do |request|
 			request.url(formatted_path(path), options)
