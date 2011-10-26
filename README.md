@@ -13,7 +13,7 @@ Documentation
 Usage Examples
 --------------
     require "rubygems"
-    require "rainmaker"
+    require "fullcontact"
 
 	# This could go in an initializer
 	FullContact.configure do |config|
