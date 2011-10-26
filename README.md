@@ -1,4 +1,4 @@
-Rainmaker Ruby Gem
+FullContact Ruby Gem
 ====================
 A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
