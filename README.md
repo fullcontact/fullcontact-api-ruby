@@ -8,7 +8,7 @@ Installation
 
 Documentation
 -------------
-[http://rdoc.info/gems/rainmaker](http://rdoc.info/gems/fullcontact)
+[http://rdoc.info/gems/fullcontact](http://rdoc.info/gems/fullcontact)
 
 Usage Examples
 --------------
