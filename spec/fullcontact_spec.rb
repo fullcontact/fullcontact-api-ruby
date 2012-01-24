@@ -1,3 +1,4 @@
+require 'fullcontact'
 require 'helper'
 
 describe FullContact do
