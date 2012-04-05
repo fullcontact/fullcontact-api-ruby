@@ -20,8 +20,11 @@ Usage Examples
 		config.api_key = "fullcontact_api_key_goes_here"
 	end
 	
-    # Get information about an email address
-    person = FullContact.person("brawest@gmail.com")
+    # Get information about a email address
+    person = FullContact.person(email: "brawest@gmail.com")
+    
+    # Get information about a twitter
+    person2 = FullContact.person(twitter: "brawest")
 
 	# Get person's family_name
 	puts person.contact_info.family_name
