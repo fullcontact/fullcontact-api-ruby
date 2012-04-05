@@ -17,19 +17,25 @@ describe FullContact do
 		  with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
 		  to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
 
+		stub_get("person.json").
+		  with(:query => {:apiKey => "api_key", :twitter => "brawtest"}).
+		  to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
 
     it "should get the correct resource" do
-      FullContact.person("brawest@gmail.com")
+      FullContact.person(email:  "brawest@gmail.com")
       a_get("person.json")
 	  .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
 	  .should have_been_made
     end
 
-    it "should return the same results as a client" do
-      FullContact.person("brawest@gmail.com").should == FullContact::Client.new.person("brawest@gmail.com")
+    it "should return the same results as a client by email" do
+      FullContact.person(:email => "brawest@gmail.com").should == FullContact::Client.new.person(:email => "brawest@gmail.com")
     end
 
+    it "should return the same results as a client by twitter" do
+      FullContact.person(:twitter => "brawtest").should == FullContact::Client.new.person(:twitter => "brawtest")
+    end
   end
 
   describe '.respond_to?' do
