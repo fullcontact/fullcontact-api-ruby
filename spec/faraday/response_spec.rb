@@ -30,7 +30,7 @@ describe Faraday::Response do
 
         it "should raise #{exception.name} error" do
           lambda do
-            @client.person( 'brawest@gmail.com')
+            @client.person(:email => 'brawest@gmail.com')
           end.should raise_error(exception)
         end
       end
@@ -46,7 +46,7 @@ describe Faraday::Response do
 
           it "should raise #{exception.name} error" do
             lambda do
-             @client.person( 'brawest@gmail.com')
+             @client.person(:email => 'brawest@gmail.com')
             end.should raise_error(exception)
           end
         end
