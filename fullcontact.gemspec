@@ -13,24 +13,24 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'hashie', '~> 1.2.0'
   s.add_runtime_dependency 'faraday', '~> 0.8'
   s.add_runtime_dependency 'faraday_middleware', '~> 0.8.6'
-  s.add_runtime_dependency 'multi_json', '~> 1.2.0'
+  s.add_runtime_dependency 'multi_json', '~> 1.3.2'
   s.add_runtime_dependency 'multi_xml', '~> 0.4.2'
   s.add_runtime_dependency 'rash', '~> 0.3.0'
 
-  s.author = "Brandon West"
+  s.author = "Anil Mitra"
   s.description = %q{A Ruby wrapper for the FullContact API}
-  s.email = ['brawest@gmail.com']
+  s.email = ['mitra.anil@gmail.com']
 
   s.post_install_message = '
 -------------------------------------------------------------
-Follow me on Twitter! http://twitter.com/brandonmwest
+Follow me on Twitter! http://twitter.com/nerdtechie
 -------------------------------------------------------------
 
 '
 
   s.executables = `git ls-files -- bin/*`.split("\n").map{|f| File.basename(f)}
   s.files = `git ls-files`.split("\n")
-  s.homepage = 'https://github.com/brandonmwest/rainmaker'
+  s.homepage = 'https://github.com/anilmitra'
   s.name = 'fullcontact'
   s.require_paths = ['lib']
   s.required_rubygems_version = Gem::Requirement.new('>= 1.3.6')
