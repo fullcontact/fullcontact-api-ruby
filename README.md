@@ -31,9 +31,9 @@ Usage Examples
 	
 Contributions
 -------------
-Michael Rose (Xorlev)
-Ian Fisher (i-taptera)
-Scott Watermasysk (scottwater)
+- Michael Rose (Xorlev)
+- Ian Fisher (i-taptera)
+- Scott Watermasysk (scottwater)
 
 Copyright
 ---------
