@@ -28,6 +28,12 @@ Usage Examples
 
 	# Get person's family_name
 	puts person.contact_info.family_name
+	
+Contributions
+-------------
+Michael Rose (Xorlev)
+Ian Fisher (i-taptera)
+Scott Watermasysk (scottwater)
 
 Copyright
 ---------
