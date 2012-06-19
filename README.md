@@ -26,6 +26,10 @@ Usage Examples
     # Get information about a twitter
     person2 = FullContact.person(twitter: "brawest")
 
+    # Get information about a twitter and ensure a 30s socket open timeout and a 15s socket read timeout
+    # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded
+    person3 = FullContact.person({:twitter => "brawest"}, {:request => {:timeout => 15, :open_timeout => 30}})
+
 	# Get person's family_name
 	puts person.contact_info.family_name
 	
@@ -37,6 +41,6 @@ Contributions
 
 Copyright
 ---------
-Copyright (c) 2012 Brandon West
+Copyright (c) 2012 FullContact, Brandon West
 
 See [LICENSE](https://github.com/brandonmwest/rainmaker/blob/master/LICENSE.md) for details.

@@ -8,13 +8,13 @@ module FullContact
   module Connection
     private
 
-    def connection(raw=false)
+    def connection(raw=false, faraday_options={})
       options = {
         :headers => {'Accept' => "application/#{format}", 'User-Agent' => user_agent},
         :proxy => proxy,
         :ssl => {:verify => false},
         :url => api_endpoint,
-      }
+      }.merge(faraday_options)
 
       Faraday.new(options) do |builder|
         builder.use Faraday::Request::UrlEncoded
