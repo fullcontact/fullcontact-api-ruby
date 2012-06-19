@@ -16,20 +16,15 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'multi_xml', '~> 0.4.2'
   s.add_runtime_dependency 'rash', '~> 0.3.0'
 
-  s.author = "Brandon West"
+  s.author = "FullContact, Inc."
   s.description = %q{A Ruby wrapper for the FullContact API}
-  s.email = ['brawest@gmail.com']
+  s.email = ['support@fullcontact.com']
 
-  s.post_install_message = '
--------------------------------------------------------------
-Follow me on Twitter! http://twitter.com/brandonmwest
--------------------------------------------------------------
-
-'
+  s.post_install_message = ''
 
   s.executables = `git ls-files -- bin/*`.split("\n").map{|f| File.basename(f)}
   s.files = `git ls-files`.split("\n")
-  s.homepage = 'https://github.com/brandonmwest/rainmaker'
+  s.homepage = 'https://github.com/fullcontact/fullcontact-api-ruby'
   s.name = 'fullcontact'
   s.require_paths = ['lib']
   s.required_rubygems_version = Gem::Requirement.new('>= 1.3.6')
