@@ -9,32 +9,80 @@ describe FullContact do
   context "when delegating to a client" do
 
     before do
-		FullContact.configure do |config|
-			config.api_key = "api_key"
-		end
-
-		stub_get("person.json").
-		  with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
-		  to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
-
-		stub_get("person.json").
-		  with(:query => {:apiKey => "api_key", :twitter => "brawtest"}).
-		  to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      FullContact.configure do |config|
+        config.api_key = "api_key"
+      end
     end
 
-    it "should get the correct resource" do
-      FullContact.person(email:  "brawest@gmail.com")
-      a_get("person.json")
-	  .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
-	  .should have_been_made
-    end
+    ['json', 'xml'].each do |format|
+      describe "using #{format} format" do
+        before do
+          FullContact.format = format
+        end
 
-    it "should return the same results as a client by email" do
-      FullContact.person(:email => "brawest@gmail.com").should == FullContact::Client.new.person(:email => "brawest@gmail.com")
-    end
+        describe "#person" do
+          before do
+            stub_get("person.#{format}").
+              with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
+              to_return(:body => fixture("person.#{format}"), :headers => {:content_type => "application/#{format}; charset=utf-8"})
 
-    it "should return the same results as a client by twitter" do
-      FullContact.person(:twitter => "brawtest").should == FullContact::Client.new.person(:twitter => "brawtest")
+            stub_get("person.#{format}").
+              with(:query => {:apiKey => "api_key", :twitter => "brawtest"}).
+              to_return(:body => fixture("person.#{format}"), :headers => {:content_type => "application/#{format}; charset=utf-8"})
+          end
+
+          it "should get the correct resource" do
+            FullContact.person(email:  "brawest@gmail.com")
+            a_get("person.#{format}")
+          .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
+          .should have_been_made
+          end
+
+          it "should return the same results as a client by email" do
+            FullContact.person(:email => "brawest@gmail.com").should == FullContact::Client.new.person(:email => "brawest@gmail.com")
+          end
+
+          it "should return the same results as a client by twitter" do
+            FullContact.person(:twitter => "brawtest").should == FullContact::Client.new.person(:twitter => "brawtest")
+          end
+        end
+
+        describe "#people" do
+          before do
+            stub_post("batch.#{format}").
+            with(:query => {:apiKey => "api_key"},
+                 :body => {"requests"=>["https://api.fullcontact.com/v2/person.#{format}?email=brawest%40gmail.com"]}).
+            to_return(:status => 200, :body => fixture("batch.#{format}"), :headers => {:content_type => "application/#{format}; charset=utf-8"})
+
+            stub_post("batch.#{format}").
+            with(:query => {:apiKey => "api_key"},
+                 :body => {"requests"=>[
+                   "https://api.fullcontact.com/v2/person.#{format}?email=brawest%40gmail.com",
+                   "https://api.fullcontact.com/v2/person.#{format}?q=kyle+hansen",
+                   "https://api.fullcontact.com/v2/person.#{format}?twitter=brawtest"
+            ]}).
+            to_return(:status => 200, :body => fixture("batch.#{format}"), :headers => {:content_type => "application/#{format}; charset=utf-8"})
+
+          end
+
+          it "should get the correct resource" do
+            FullContact.people([{email:  "brawest@gmail.com"}])
+            a_post("batch.#{format}")
+          .with(:query => {:apiKey => "api_key"}, :body => {"requests"=>["https://api.fullcontact.com/v2/person.#{format}?email=brawest%40gmail.com"]})
+          .should have_been_made
+          end
+
+          it "should return multiple results by different means" do
+            peeps = FullContact.people([
+              {:email => "brawest@gmail.com"},
+              {:q => 'kyle hansen'},
+              {:twitter => "brawtest"}
+            ])
+
+            peeps.size.should == 3
+          end
+        end
+      end
     end
   end
 
