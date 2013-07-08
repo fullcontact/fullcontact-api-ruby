@@ -81,6 +81,29 @@ describe FullContact do
 
             peeps.size.should == 3
           end
+
+          it "should get the results in batches if over the limit" do
+            FullContact.batch_size = 3
+            stub_post("batch.#{format}").
+            with(:query => {:apiKey => "api_key"},
+                 :body => {"requests"=>[
+                   "https://api.fullcontact.com/v2/person.#{format}?email=brawest2%40gmail.com",
+                   "https://api.fullcontact.com/v2/person.#{format}?q=kyle2+hansen",
+                   "https://api.fullcontact.com/v2/person.#{format}?twitter=brawtest2"
+            ]}).
+            to_return(:status => 200, :body => fixture("batch.#{format}"), :headers => {:content_type => "application/#{format}; charset=utf-8"})
+
+            peeps = FullContact.people([
+              {:email => "brawest@gmail.com"},
+              {:q => 'kyle hansen'},
+              {:twitter => "brawtest"},
+              {:email => "brawest2@gmail.com"},
+              {:q => 'kyle2 hansen'},
+              {:twitter => "brawtest2"}
+            ])
+
+            peeps.size.should == 6
+          end
         end
       end
     end
@@ -121,6 +144,19 @@ describe FullContact do
     it "should set the endpoint" do
       FullContact.endpoint = 'http://tumblr.com/'
       FullContact.endpoint.should == 'http://tumblr.com/'
+    end
+  end
+
+  describe ".batch_size" do
+    it "should return the default endpoint" do
+      FullContact.batch_size.should == FullContact::Configuration::DEFAULT_BATCH_SIZE
+    end
+  end
+
+  describe ".batch_size=" do
+    it "should set the endpoint" do
+      FullContact.batch_size = 4
+      FullContact.batch_size.should == 4
     end
   end
 

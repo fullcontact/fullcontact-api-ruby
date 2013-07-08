@@ -11,6 +11,7 @@ module FullContact
       :format,
       :gateway,
       :proxy,
+      :batch_size,
       :user_agent].freeze
 
     # An array of valid request/response formats
@@ -45,6 +46,8 @@ module FullContact
 
     DEFAULT_GATEWAY = nil
 
+    DEFAULT_BATCH_SIZE = 20
+
     # @private
     attr_accessor *VALID_OPTIONS_KEYS
 
@@ -73,6 +76,7 @@ module FullContact
       self.format             = DEFAULT_FORMAT
       self.proxy              = DEFAULT_PROXY
       self.user_agent         = DEFAULT_USER_AGENT
+      self.batch_size         = DEFAULT_BATCH_SIZE
       self.gateway            = DEFAULT_GATEWAY
       self
     end

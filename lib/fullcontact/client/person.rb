@@ -17,7 +17,7 @@ module FullContact
         warn "You are fetching more than 20 people, multiple requests will be made" if options.size > 20
 
         c = connection(false, faraday_options)
-        r = options.each_slice(20).to_a.map do |options_of_twenty|
+        r = options.each_slice(FullContact.batch_size).to_a.map do |options_of_twenty|
           batch_endpoints = options_of_twenty.map do |option|
             c.build_url(formatted_path('person'), option).to_s
           end
