@@ -51,3 +51,7 @@ pkg
 *.lock
 
 *.gem
+
+.rvmrc
+.ruby-gemset
+.ruby-version
