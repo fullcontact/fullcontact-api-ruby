@@ -23,9 +23,15 @@ Usage Examples
     # Get information about a email address
     person = FullContact.person(email: "brawest@gmail.com")
     
-    # Get information about a twitter
+    # Get information about a twitter handle
     person2 = FullContact.person(twitter: "brawest")
 
+    # Get information about a facebook username
+    person3 = FullContact.person(facebookUsername: "bart.lorang")
+    
+    # Get information from a phone number
+    person4 = FullContact.person(phone:13037170414)
+    
     # Get information about a twitter and ensure a 30s socket open timeout and a 15s socket read timeout
     # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded
     person3 = FullContact.person({:twitter => "brawest"}, {:request => {:timeout => 15, :open_timeout => 30}})
