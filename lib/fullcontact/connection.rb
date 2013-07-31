@@ -30,6 +30,7 @@ module FullContact
         end
         builder.use Faraday::Response::FullContactErrors
         builder.adapter Faraday.default_adapter
+        builder.request  :url_encoded
       end
     end
   end

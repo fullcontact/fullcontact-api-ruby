@@ -13,7 +13,8 @@ module FullContact
     def post(path, options={}, raw=false, faraday_options={})
       response = connection(raw, faraday_options).post do |req|
         req.url(formatted_path(path), {:apiKey =>  FullContact.options[:api_key]})
-        req.body = options
+        req.body = options.to_json
+        req.headers['Content-Type'] = 'application/json'
       end
       raw ? response : response.body
     end
