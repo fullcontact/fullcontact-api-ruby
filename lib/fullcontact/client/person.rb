@@ -20,7 +20,7 @@ module FullContact
         r = options.each_slice(FullContact.batch_size).to_a.map do |options_of_twenty|
           response_order_by_url = {}
           batch_endpoints = options_of_twenty.each_with_index.map do |option, i|
-            url = c.build_url(formatted_path('person'), option).to_s
+            url = c.build_url(formatted_path('person'), option).to_s.downcase
             response_order_by_url[url] = i
             url
           end
@@ -30,7 +30,7 @@ module FullContact
           else
             response['responses'].map{ |k,v| v.request_url = k; v }
           end.sort_by do |r|
-            response_order_by_url[r.request_url]
+            response_order_by_url[r.request_url.downcase]
           end
         end.flatten
       end

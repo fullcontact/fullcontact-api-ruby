@@ -83,9 +83,9 @@ describe FullContact do
 
           it "should return multiple results by different means" do
             peeps = FullContact.people([
-              {:email => "brawest@gmail.com"},
-              {:q => 'kyle hansen'},
-              {:twitter => "brawtest"}
+              {:email => "Brawest@gmail.com"},
+              {:q => 'kyle Hansen'},
+              {:twitter => "brawTest"}
             ])
 
             peeps.size.should == 3
@@ -93,9 +93,9 @@ describe FullContact do
 
           it "should return people in the correct order" do
             peeps = FullContact.people([
-              {:email => "brawest@gmail.com"},
-              {:q => 'kyle hansen'},
-              {:twitter => "brawtest"}
+              {:email => "brawest@Gmail.com"},
+              {:q => 'Kyle Hansen'},
+              {:twitter => "Brawtest"}
             ])
             peeps.map{|p| p.name_details.family_name }.should == ["Lorang", "Hansen", "Lynn"]
           end
