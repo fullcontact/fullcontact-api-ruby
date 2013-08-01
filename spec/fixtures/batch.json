@@ -1,29 +1,7 @@
 {
   "status": 200,
   "responses": {
-    "https://api.fullcontact.com/v2/name/normalizer.json?q=dan+lynn": {
-      "region": "USA",
-      "nameDetails": {
-        "nicknames": 
-        [
-        ],
-        "suffixes": 
-        [
-        ],
-        "familyName": "Lynn",
-        "fullName": "Dan Lynn",
-        "givenName": "Dan",
-        "prefixes": 
-        [
-        ],
-        "middleNames": 
-        [
-        ]
-      },
-      "status": 200,
-      "likelihood": 0.974
-    },
-    "https://api.fullcontact.com/v2/name/normalizer.json?q=kyle+hansen": {
+    "https://api.fullcontact.com/v2/person.json?q=kyle+hansen": {
       "region": "USA",
       "nameDetails": {
         "nicknames": 
@@ -45,7 +23,29 @@
       "status": 200,
       "likelihood": 1
     },
-    "https://api.fullcontact.com/v2/person.json?email=bart@fullcontact.com": {
+    "https://api.fullcontact.com/v2/person.json?twitter=brawtest": {
+      "region": "USA",
+      "nameDetails": {
+        "nicknames": 
+        [
+        ],
+        "suffixes": 
+        [
+        ],
+        "familyName": "Lynn",
+        "fullName": "Dan Lynn",
+        "givenName": "Dan",
+        "prefixes": 
+        [
+        ],
+        "middleNames": 
+        [
+        ]
+      },
+      "status": 200,
+      "likelihood": 0.974
+    },
+    "https://api.fullcontact.com/v2/person.json?email=brawest%40gmail.com": {
       "photos": 
       [
         {
@@ -170,6 +170,11 @@
           "url": "http://qph.cf.quoracdn.net/main-thumb-235179-200-jKTxWZQMbAl9MrGaLTDAs19WUiZoCuPW.jpeg"
         }
       ],
+      "nameDetails": {
+        "familyName": "Lorang",
+        "fullName": "Bart Lorang",
+        "givenName": "Bart"
+      },
       "contactInfo": {
         "familyName": "Lorang",
         "fullName": "Bart Lorang",

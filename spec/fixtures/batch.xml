@@ -7,21 +7,6 @@
       <nameDetails>
         <nicknames />
         <suffixes />
-        <familyName>Lynn</familyName>
-        <fullName>Dan Lynn</fullName>
-        <givenName>Dan</givenName>
-        <prefixes />
-        <middleNames />
-      </nameDetails>
-      <status>200</status>
-      <likelihood>0.974</likelihood>
-      <requestUrl>https://api.fullcontact.com/v2/name/normalizer.json?q=dan+lynn</requestUrl>
-    </response>
-    <response>
-      <region>USA</region>
-      <nameDetails>
-        <nicknames />
-        <suffixes />
         <familyName>Hansen</familyName>
         <fullName>Kyle Hansen</fullName>
         <givenName>Kyle</givenName>
@@ -30,7 +15,7 @@
       </nameDetails>
       <status>200</status>
       <likelihood>1</likelihood>
-      <requestUrl>https://api.fullcontact.com/v2/name/normalizer.json?q=kyle+hansen</requestUrl>
+      <requestUrl>https://api.fullcontact.com/v2/person.xml?q=kyle+hansen</requestUrl>
     </response>
     <response>
       <photos>
@@ -156,6 +141,15 @@
           <url>http://qph.cf.quoracdn.net/main-thumb-235179-200-jKTxWZQMbAl9MrGaLTDAs19WUiZoCuPW.jpeg</url>
         </photo>
       </photos>
+      <nameDetails>
+        <nicknames />
+        <suffixes />
+        <familyName>Lorang</familyName>
+        <fullName>Bart Lorang</fullName>
+        <givenName>Bart</givenName>
+        <prefixes />
+        <middleNames />
+      </nameDetails>
       <contactInfo>
         <familyName>Lorang</familyName>
         <fullName>Bart Lorang</fullName>
@@ -405,7 +399,22 @@
           </score>
         </scores>
       </digitalFootprint>
-      <requestUrl>https://api.fullcontact.com/v2/person.json?email=bart@fullcontact.com</requestUrl>
+      <requestUrl>https://api.fullcontact.com/v2/person.xml?email=brawest%40gmail.com</requestUrl>
+    </response>
+    <response>
+      <region>USA</region>
+      <nameDetails>
+        <nicknames />
+        <suffixes />
+        <familyName>Lynn</familyName>
+        <fullName>Dan Lynn</fullName>
+        <givenName>Dan</givenName>
+        <prefixes />
+        <middleNames />
+      </nameDetails>
+      <status>200</status>
+      <likelihood>0.974</likelihood>
+      <requestUrl>https://api.fullcontact.com/v2/person.xml?twitter=brawtest</requestUrl>
     </response>
   </responses>
 </batch>

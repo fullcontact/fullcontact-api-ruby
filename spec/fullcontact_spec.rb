@@ -66,9 +66,18 @@ describe FullContact do
           end
 
           it "should get the correct resource" do
-            FullContact.people([{email:  "brawest@gmail.com"}])
+            FullContact.people([
+              {:email => "brawest@gmail.com"},
+              {:q => 'kyle hansen'},
+              {:twitter => "brawtest"}
+            ])
             a_post("batch.#{format}")
-          .with(:query => {:apiKey => "api_key"}, :body => {"requests"=>["https://api.fullcontact.com/v2/person.#{format}?email=brawest%40gmail.com"]})
+            .with(:query => {:apiKey => "api_key"},
+                 :body => {"requests"=>[
+                   "https://api.fullcontact.com/v2/person.#{format}?email=brawest%40gmail.com",
+                   "https://api.fullcontact.com/v2/person.#{format}?q=kyle+hansen",
+                   "https://api.fullcontact.com/v2/person.#{format}?twitter=brawtest"
+            ]})
           .should have_been_made
           end
 
@@ -80,6 +89,15 @@ describe FullContact do
             ])
 
             peeps.size.should == 3
+          end
+
+          it "should return people in the correct order" do
+            peeps = FullContact.people([
+              {:email => "brawest@gmail.com"},
+              {:q => 'kyle hansen'},
+              {:twitter => "brawtest"}
+            ])
+            peeps.map{|p| p.name_details.family_name }.should == ["Lorang", "Hansen", "Lynn"]
           end
 
           it "should get the results in batches if over the limit" do
