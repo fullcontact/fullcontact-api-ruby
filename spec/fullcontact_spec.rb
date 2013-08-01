@@ -100,6 +100,28 @@ describe FullContact do
             peeps.map{|p| p.name_details.family_name }.should == ["Lorang", "Hansen", "Lynn"]
           end
 
+          it "returns requests with duplicate people" do
+            stub_post("batch.#{format}").
+            with(:query => {:apiKey => "api_key"},
+                 :body => {"requests"=>[
+                   "https://api.fullcontact.com/v2/person.#{format}?email=brawest%40gmail.com",
+                   "https://api.fullcontact.com/v2/person.#{format}?twitter=brawtest",
+                   "https://api.fullcontact.com/v2/person.#{format}?q=kyle+hansen",
+                   "https://api.fullcontact.com/v2/person.#{format}?q=kyle+hansen",
+                   "https://api.fullcontact.com/v2/person.#{format}?twitter=brawtest"
+            ]}).
+            to_return(:status => 200, :body => fixture("batch.#{format}"), :headers => {:content_type => "application/#{format}; charset=utf-8"})
+
+            peeps = FullContact.people([
+              {:email => "brawest@Gmail.com"},
+              {:twitter => "Brawtest"},
+              {:q => 'Kyle Hansen'},
+              {:q => 'Kyle Hansen'},
+              {:twitter => "Brawtest"}
+            ])
+            peeps.map{|p| p.name_details.family_name }.should == ["Lorang", "Lynn", "Hansen", "Hansen", "Lynn"]
+          end
+
           it "should get the results in batches if over the limit" do
             FullContact.batch_size = 3
             stub_post("batch.#{format}").
