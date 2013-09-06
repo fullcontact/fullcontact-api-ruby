@@ -3,21 +3,23 @@ module FullContact
   module Request
     # Perform an HTTP GET request
     def get(path, options={}, raw=false, faraday_options={})
-      request(:get, path, options, raw, faraday_options)
+      options[:apiKey] = FullContact.options[:api_key]
+      response = connection(raw, faraday_options).get do |req|
+        req.url(formatted_path(path), options)
+      end
+      raw ? response : response.body
+    end
+
+    def post(path, options={}, raw=false, faraday_options={})
+      response = connection(raw, faraday_options).post do |req|
+        req.url(formatted_path(path), {:apiKey =>  FullContact.options[:api_key]})
+        req.body = options.to_json
+        req.headers['Content-Type'] = 'application/json'
+      end
+      raw ? response : response.body
     end
 
     private
-
-    # Perform an HTTP request
-    def request(method, path, options, raw=false, faraday_options={})
-		options[:apiKey] = FullContact.options[:api_key]
-
-		response = connection(raw, faraday_options).send(method) do |request|
-			request.url(formatted_path(path), options)
-      	end
-
-		raw ? response : response.body
-    end
 
     def formatted_path(path)
       [path, format].compact.join('.')

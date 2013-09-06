@@ -21,9 +21,10 @@ module Faraday
       end
 		   end
 
-	 def error_message(env)
-      "#{env[:method].to_s.upcase} #{env[:url].to_s}: #{env[:status]}"
-    end
+      def error_message(env)
+        msg = JSON.parse(env[:body])['message'] if env[:body]
+        "#{env[:method].to_s.upcase} #{env[:status]} #{env[:url].to_s}: #{msg}"
+      end
 
     def initialize(app)
       super

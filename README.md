@@ -38,12 +38,24 @@ Usage Examples
 
 	# Get person's family_name
 	puts person.contact_info.family_name
+
+    # Get information about multiple people in a batch request (returns results in the same order)
+    people = FullContact.people([{email: "brawest@gmail.com"},{twitter:"brawest"}, {email: "test@example.com"}])
+
+    # Get information about multiple people and ensure a 30s socket open timeout and a 15s socket read timeout
+    # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded
+    people = FullContact.people([{email:"brawest@gmail.com"},{twitter:"brawest"}, {email: "test@example.com"}],{:request => {:timeout => 15, :open_timeout => 30}})
+
+	# Get test@example.com's family_name
+	puts people.last.contact_info.family_name
+
 	
 Contributions
 -------------
 - Michael Rose (Xorlev)
 - Ian Fisher (i-taptera)
 - Scott Watermasysk (scottwater)
+- Nolan Frausto (frausto)
 
 Copyright
 ---------
