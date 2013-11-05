@@ -1,5 +1,5 @@
-require "faraday"
-require "faraday_middleware"
+require 'faraday'
+require 'faraday_middleware'
 require 'fullcontact/error'
 require 'fullcontact/configuration'
 require 'fullcontact/api'

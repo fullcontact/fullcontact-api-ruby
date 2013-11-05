@@ -41,7 +41,7 @@ module FullContact
     DEFAULT_PROXY = nil
 
     # The user agent that will be sent to the API endpoint if none is set
-    DEFAULT_USER_AGENT = "FullContact Ruby Gem".freeze
+    DEFAULT_USER_AGENT = 'FullContact Ruby Gem'.freeze
 
     DEFAULT_GATEWAY = nil
 

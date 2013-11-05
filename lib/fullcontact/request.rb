@@ -10,13 +10,13 @@ module FullContact
 
     # Perform an HTTP request
     def request(method, path, options, raw=false, faraday_options={})
-		options[:apiKey] = FullContact.options[:api_key]
+      options[:apiKey] = FullContact.options[:api_key]
 
-		response = connection(raw, faraday_options).send(method) do |request|
-			request.url(formatted_path(path), options)
-      	end
+      response = connection(raw, faraday_options).send(method) do |request|
+        request.url(formatted_path(path), options)
+          end
 
-		raw ? response : response.body
+      raw ? response : response.body
     end
 
     def formatted_path(path)
