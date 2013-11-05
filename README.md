@@ -2,6 +2,11 @@ FullContact Ruby Gem
 ====================
 A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
+Changes
+-------
+
+0.6.0 - Removal of timeoutSeconds parameter. This parameter is automatically stripped from your request if included.
+
 Installation
 ------------
     gem install fullcontact
@@ -47,6 +52,6 @@ Contributions
 
 Copyright
 ---------
-Copyright (c) 2012 FullContact, Brandon West
+Copyright (c) 2013 FullContact, Brandon West
 
 See [LICENSE](https://github.com/brandonmwest/rainmaker/blob/master/LICENSE.md) for details.
