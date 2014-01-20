@@ -49,6 +49,7 @@ Contributions
 - Michael Rose (Xorlev)
 - Ian Fisher (i-taptera)
 - Scott Watermasysk (scottwater)
+- Stefano Fontanelli (stefanofontanelli)
 
 Copyright
 ---------
