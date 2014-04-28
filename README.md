@@ -43,6 +43,15 @@ Usage Examples
 
 	# Get person's family_name
 	puts person.contact_info.family_name
+
+    # Gets a list of all the cards a user has scanned
+    cards = FullContact.cardReader
+
+    # cards.total_pages will give you the number of pages you can request. 
+    # cards.total_records will give you the total number of cards FullContact has on your account.
+
+    # Gets 2nd page of cards (note: pagination starts at 0)
+    cards = FullContact.cardReader(page:1)
 	
 Contributions
 -------------
