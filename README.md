@@ -17,6 +17,7 @@ Documentation
 
 Usage Examples
 --------------
+```ruby
     require "rubygems"
     require "fullcontact"
 
@@ -25,8 +26,11 @@ Usage Examples
 		config.api_key = "fullcontact_api_key_goes_here"
 	end
 	
-    # Get information about a email address
+    # Get information about an email address
     person = FullContact.person(email: "brawest@gmail.com")
+    
+    # Get information about an email address, organized by hashes vs. lists
+    person = FullContact.person(email: "bart@fullcontact.com", style: "dictionary")
     
     # Get information about a twitter handle
     person2 = FullContact.person(twitter: "brawest")
@@ -41,8 +45,9 @@ Usage Examples
     # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded
     person3 = FullContact.person({:twitter => "brawest"}, {:request => {:timeout => 15, :open_timeout => 30}})
 
-	# Get person's family_name
-	puts person.contact_info.family_name
+    # Get person's family_name
+    puts person.contact_info.family_name
+```
 	
 Contributions
 -------------
