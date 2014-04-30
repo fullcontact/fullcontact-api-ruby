@@ -18,32 +18,34 @@ Documentation
 Usage Examples
 --------------
 ```ruby
-    require "rubygems"
     require "fullcontact"
 
-	# This could go in an initializer
-	FullContact.configure do |config|
-		config.api_key = "fullcontact_api_key_goes_here"
-	end
+    # This could go in an initializer
+    FullContact.configure do |config|
+        config.api_key = "fullcontact_api_key_goes_here"
+    end
 	
     # Get information about an email address
     person = FullContact.person(email: "brawest@gmail.com")
     
     # Get information about an email address, organized by hashes vs. lists
-    person = FullContact.person(email: "bart@fullcontact.com", style: "dictionary")
+    person2 = FullContact.person(email: "bart@fullcontact.com", style: "dictionary")
+    
+    # You can pass in any arbitrary parameters the Person API supports
+    person3 = FullContact.person(email: "bart@fullcontact.com", style: "dictionary", webhookUrl: "https://...")
     
     # Get information about a twitter handle
-    person2 = FullContact.person(twitter: "brawest")
+    person4 = FullContact.person(twitter: "brawest")
 
     # Get information about a facebook username
-    person3 = FullContact.person(facebookUsername: "bart.lorang")
+    person5 = FullContact.person(facebookUsername: "bart.lorang")
     
     # Get information from a phone number
-    person4 = FullContact.person(phone:13037170414)
+    person6 = FullContact.person(phone:13037170414)
     
     # Get information about a twitter and ensure a 30s socket open timeout and a 15s socket read timeout
     # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded
-    person3 = FullContact.person({:twitter => "brawest"}, {:request => {:timeout => 15, :open_timeout => 30}})
+    person7 = FullContact.person({:twitter => "brawest"}, {:request => {:timeout => 15, :open_timeout => 30}})
 
     # Get person's family_name
     puts person.contact_info.family_name
@@ -58,6 +60,6 @@ Contributions
 
 Copyright
 ---------
-Copyright (c) 2013 FullContact, Brandon West
+Copyright (c) 2014 FullContact, Brandon West
 
 See [LICENSE](https://github.com/brandonmwest/rainmaker/blob/master/LICENSE.md) for details.
