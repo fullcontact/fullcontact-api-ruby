@@ -24,6 +24,10 @@ describe FullContact do
       stub_get("cardReader.json").
         with(:query => {:apiKey => "api_key"}).
         to_return(:body => fixture("card_reader.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+
+      stub_get("cardReader.json").
+        with(:query => {:apiKey => "api_key", :page => 2}).
+        to_return(:body => fixture("card_reader.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
 
     it "should get the correct resource" do
@@ -50,6 +54,10 @@ describe FullContact do
 
     it "should return cardReader results to a client" do
       FullContact.card_reader.should == FullContact::Client.new.card_reader
+    end
+
+    it "should return the specified page of cardReader results to a client" do
+      FullContact.card_reader(:page => 2).should == FullContact::Client.new.card_reader(:page => 2  )
     end
   end
 
