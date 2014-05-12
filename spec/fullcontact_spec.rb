@@ -9,17 +9,17 @@ describe FullContact do
   context "when delegating to a client" do
 
     before do
-  		FullContact.configure do |config|
-  			config.api_key = "api_key"
-  		end
+      FullContact.configure do |config|
+        config.api_key = "api_key"
+      end
 
-  		stub_get("person.json").
-  		  with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
-  		  to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("person.json").
+        with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
+        to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
 
-  		stub_get("person.json").
-  		  with(:query => {:apiKey => "api_key", :twitter => "brawtest"}).
-  		  to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("person.json").
+        with(:query => {:apiKey => "api_key", :twitter => "brawtest"}).
+        to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
 
       stub_get("cardReader.json").
         with(:query => {:apiKey => "api_key"}).
@@ -33,15 +33,15 @@ describe FullContact do
     it "should get the correct resource" do
       FullContact.person(email:  "brawest@gmail.com")
       a_get("person.json")
-	  .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
-	  .should have_been_made
+    .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
+    .should have_been_made
     end
 
     it "should strip the timeoutSeconds parameter" do
       FullContact.person(email:  "brawest@gmail.com", timeoutSeconds: 30)
       a_get("person.json")
-	  .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
-	  .should have_been_made
+    .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
+    .should have_been_made
     end
 
     it "should return the same results as a client by email" do

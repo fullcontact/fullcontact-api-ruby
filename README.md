@@ -6,6 +6,7 @@ Changes
 -------
 
 0.6.0 - Removal of timeoutSeconds parameter. This parameter is automatically stripped from your request if included.
+0.7.0 - Added support for cardReader API
 
 Installation
 ------------
@@ -45,13 +46,13 @@ Usage Examples
 	puts person.contact_info.family_name
 
     # Gets a list of all the cards a user has scanned
-    cards = FullContact.cardReader
+    cards = FullContact.card_reader
 
     # cards.total_pages will give you the number of pages you can request. 
     # cards.total_records will give you the total number of cards FullContact has on your account.
 
     # Gets 2nd page of cards (note: pagination starts at 0)
-    cards = FullContact.cardReader(page:1)
+    cards = FullContact.card_reader(page:1)
 	
 Contributions
 -------------
