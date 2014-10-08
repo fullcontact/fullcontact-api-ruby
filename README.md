@@ -4,8 +4,8 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
-0.7.0 - Faraday 0.9.0
-0.6.0 - Removal of timeoutSeconds parameter. This parameter is automatically stripped from your request if included.
+- 0.7.0 - Faraday 0.9.0
+- 0.6.0 - Removal of timeoutSeconds parameter. This parameter is automatically stripped from your request if included.
 
 Installation
 ------------
