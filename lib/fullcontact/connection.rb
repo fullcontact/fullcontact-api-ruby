@@ -24,8 +24,6 @@ module FullContact
           case format.to_s.downcase
           when 'json'
             builder.use Faraday::Response::ParseJson
-          when 'xml'
-            builder.use Faraday::Response::ParseXml
           end
         end
         builder.use Faraday::Response::FullContactErrors

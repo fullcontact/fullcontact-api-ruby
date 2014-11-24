@@ -14,11 +14,7 @@ module FullContact
       :user_agent].freeze
 
     # An array of valid request/response formats
-    #
-    # @note Not all methods support the XML format.
-    VALID_FORMATS = [
-      :json,
-      :xml].freeze
+    VALID_FORMATS = [:json].freeze
 
     # The adapter that will be used to connect if none is set
     #
