@@ -45,12 +45,6 @@ describe FullContact do
     end
   end
 
-  describe '.respond_to?' do
-    it 'takes an optional include private argument' do
-      FullContact.respond_to?(:client, true).should be_true
-    end
-  end
-
   describe ".client" do
     it "should be a FullContact::Client" do
       FullContact.client.should be_a FullContact::Client
