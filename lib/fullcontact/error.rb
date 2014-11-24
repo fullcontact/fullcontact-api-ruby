@@ -10,26 +10,34 @@ module FullContact
   end
 
   # Raised when FullContact returns the HTTP status code 400
-  class BadRequest < Error; end
+  class BadRequest < Error;
+  end
 
   # Raised when FullContact returns the HTTP status code 401
-  class Unauthorized < Error; end
+  class Unauthorized < Error;
+  end
 
   # Raised when FullContact returns the HTTP status code 403
-  class Forbidden < Error; end
+  class Forbidden < Error;
+  end
 
   # Raised when FullContact returns the HTTP status code 404
-  class NotFound < Error; end
+  class NotFound < Error;
+  end
 
   # Raised when FullContact returns the HTTP status code 422
-  class Invalid < Error; end
+  class Invalid < Error;
+  end
 
   # Raised when FullContact returns the HTTP status code 500
-  class InternalServerError < Error; end
+  class InternalServerError < Error;
+  end
 
   # Raised when FullContact returns the HTTP status code 502
-  class BadGateway < Error; end
+  class BadGateway < Error;
+  end
 
   # Raised when FullContact returns the HTTP status code 503
-  class ServiceUnavailable < Error; end
+  class ServiceUnavailable < Error;
+  end
 end

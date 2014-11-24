@@ -5,13 +5,13 @@ module FullContact
   module Configuration
     # An array of valid keys in the options hash when configuring a {FullContact::API}
     VALID_OPTIONS_KEYS = [
-      :adapter,
-      :api_key,
-      :endpoint,
-      :format,
-      :gateway,
-      :proxy,
-      :user_agent].freeze
+        :adapter,
+        :api_key,
+        :endpoint,
+        :format,
+        :gateway,
+        :proxy,
+        :user_agent].freeze
 
     # An array of valid request/response formats
     VALID_FORMATS = [:json].freeze
@@ -33,7 +33,7 @@ module FullContact
     # @note JSON is preferred over XML because it is more concise and faster to parse.
     DEFAULT_FORMAT = :json
 
-     # By default, don't use a proxy server
+    # By default, don't use a proxy server
     DEFAULT_PROXY = nil
 
     # The user agent that will be sent to the API endpoint if none is set
@@ -57,19 +57,19 @@ module FullContact
     # Create a hash of options and their values
     def options
       options = {}
-      VALID_OPTIONS_KEYS.each{|k| options[k] = send(k) }
+      VALID_OPTIONS_KEYS.each { |k| options[k] = send(k) }
       options
     end
 
     # Reset all configuration options to defaults
     def reset
-      self.adapter            = DEFAULT_ADAPTER
-      self.api_key            = DEFAULT_API_KEY
-      self.endpoint           = DEFAULT_ENDPOINT
-      self.format             = DEFAULT_FORMAT
-      self.proxy              = DEFAULT_PROXY
-      self.user_agent         = DEFAULT_USER_AGENT
-      self.gateway            = DEFAULT_GATEWAY
+      self.adapter = DEFAULT_ADAPTER
+      self.api_key = DEFAULT_API_KEY
+      self.endpoint = DEFAULT_ENDPOINT
+      self.format = DEFAULT_FORMAT
+      self.proxy = DEFAULT_PROXY
+      self.user_agent = DEFAULT_USER_AGENT
+      self.gateway = DEFAULT_GATEWAY
       self
     end
   end

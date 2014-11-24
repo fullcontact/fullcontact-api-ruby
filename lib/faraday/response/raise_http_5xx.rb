@@ -6,12 +6,12 @@ module Faraday
   class Response::RaiseHttp5xx < Response::Middleware
     def on_complete(env)
       case env[:status].to_i
-      when 500
-        raise FullContact::InternalServerError.new(error_message(env, "Internal server error."), env[:response_headers])
-      when 502
-        raise FullContact::BadGateway.new(error_message(env, "FullContact is down or being upgraded."), env[:response_headers])
-      when 503
-        raise FullContact::ServiceUnavailable.new(error_message(env, "Service unavailable."), env[:response_headers])
+        when 500
+          raise FullContact::InternalServerError.new(error_message(env, "Internal server error."), env[:response_headers])
+        when 502
+          raise FullContact::BadGateway.new(error_message(env, "FullContact is down or being upgraded."), env[:response_headers])
+        when 503
+          raise FullContact::ServiceUnavailable.new(error_message(env, "Service unavailable."), env[:response_headers])
       end
     end
 

@@ -10,10 +10,10 @@ module FullContact
 
     def connection(raw=false, faraday_options={})
       options = {
-        :headers => {'Accept' => "application/#{format}", 'User-Agent' => user_agent},
-        :proxy => proxy,
-        :ssl => {:verify => false},
-        :url => api_endpoint,
+          :headers => {'Accept' => "application/#{format}", 'User-Agent' => user_agent},
+          :proxy => proxy,
+          :ssl => {:verify => false},
+          :url => api_endpoint,
       }.merge(faraday_options)
 
       Faraday.new(options) do |builder|
@@ -22,8 +22,8 @@ module FullContact
         builder.use Faraday::Response::Rashify unless raw
         unless raw
           case format.to_s.downcase
-          when 'json'
-            builder.use Faraday::Response::ParseJson
+            when 'json'
+              builder.use Faraday::Response::ParseJson
           end
         end
         builder.use Faraday::Response::FullContactErrors

@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "fullcontact/version"
+$:.push File.expand_path('../lib', __FILE__)
+require 'fullcontact/version'
 
 Gem::Specification.new do |s|
   s.add_development_dependency 'maruku', '~> 0.6'
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'faraday_middleware', '>= 0.9'
   s.add_runtime_dependency 'rash', '>= 0.4'
 
-  s.author = "FullContact, Inc."
+  s.author = 'FullContact, Inc.'
   s.description = %q{A Ruby wrapper for the FullContact API}
   s.email = ['support@fullcontact.com']
 
