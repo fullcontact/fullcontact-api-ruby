@@ -12,6 +12,9 @@ module Faraday
           raise FullContact::NotFound.new(error_message(env), env[:response_headers])
         when 422
           raise FullContact::Invalid.new(error_message(env), env[:response_headers])
+        when 429
+          # Note: not currently in use
+          raise FullContact::RateLimited.new(error_message(env), env[:response_headers])
         when 500
           raise FullContact::InternalServerError.new(error_message(env), env[:response_headers])
         when 502

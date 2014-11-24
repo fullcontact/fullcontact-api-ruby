@@ -29,6 +29,10 @@ module FullContact
   class Invalid < Error;
   end
 
+  # Raised when FullContact returns the HTTP status code 429
+  class RateLimited < Error;
+  end
+
   # Raised when FullContact returns the HTTP status code 500
   class InternalServerError < Error;
   end
