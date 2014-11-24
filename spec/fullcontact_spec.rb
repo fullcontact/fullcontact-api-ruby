@@ -96,6 +96,12 @@ describe FullContact do
     end
   end
 
+  describe ".user_agent" do
+    it "should return the default user agent" do
+      expect(FullContact.user_agent).to satisfy { |ua| ua.start_with? 'FullContact Ruby Client/' }
+    end
+  end
+
   describe ".user_agent=" do
     it "should set the user_agent" do
       FullContact.user_agent = 'Custom User Agent'
