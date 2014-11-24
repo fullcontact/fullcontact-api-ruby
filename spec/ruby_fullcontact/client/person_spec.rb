@@ -7,6 +7,6 @@ describe FullContact::Client do
         @client = FullContact::Client.new(:format => format, :api_key => 'api_key')
       end
 
-      end
     end
   end
+end

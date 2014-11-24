@@ -4,6 +4,11 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.8.0
+    - Hashie now allowed from [2.2, 4.0) to support a wide range of other applications
+    - Default useragent includes version number for our own information
+    - Useless XML mode and dep on `multi_xml` removed
+    - Code reformatting & basic code hygiene, prep for new features in 0.9.0
 - 0.7.0 - Faraday 0.9.0
 - 0.6.0 - Removal of timeoutSeconds parameter. This parameter is automatically stripped from your request if included.
 

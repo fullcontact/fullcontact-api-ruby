@@ -6,7 +6,7 @@ describe FullContact::API do
   end
 
   context "with module configuration" do
-     before do
+    before do
       FullContact.configure do |config|
         @keys.each do |key|
           config.send("#{key}=", key)
@@ -29,24 +29,24 @@ describe FullContact::API do
 
       before do
         @configuration = {
-          :api_key => 'api_key',
-          :adapter => :typhoeus,
-          :endpoint => 'http://tumblr.com/',
-          :gateway => 'apigee-1111.apigee.com',
-          :format => :xml,
-          :proxy => 'http://erik:sekret@proxy.example.com:8080',
-          :user_agent => 'Custom User Agent',
+            :api_key => 'api_key',
+            :adapter => :typhoeus,
+            :endpoint => 'http://tumblr.com/',
+            :gateway => 'apigee-1111.apigee.com',
+            :format => :xml,
+            :proxy => 'http://erik:sekret@proxy.example.com:8080',
+            :user_agent => 'Custom User Agent',
         }
       end
 
       context "during initialization"
 
-        it "should override module configuration" do
-          api = FullContact::API.new(@configuration)
-          @keys.each do |key|
-            api.send(key).should == @configuration[key]
-          end
+      it "should override module configuration" do
+        api = FullContact::API.new(@configuration)
+        @keys.each do |key|
+          api.send(key).should == @configuration[key]
         end
+      end
 
       context "after initilization" do
 

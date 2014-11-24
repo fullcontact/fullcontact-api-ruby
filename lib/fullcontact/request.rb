@@ -14,7 +14,7 @@ module FullContact
 
       response = connection(raw, faraday_options).send(method) do |request|
         request.url(formatted_path(path), options)
-          end
+      end
 
       raw ? response : response.body
     end

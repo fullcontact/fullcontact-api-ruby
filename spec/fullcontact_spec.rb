@@ -9,31 +9,31 @@ describe FullContact do
   context "when delegating to a client" do
 
     before do
-		FullContact.configure do |config|
-			config.api_key = "api_key"
-		end
+      FullContact.configure do |config|
+        config.api_key = "api_key"
+      end
 
-		stub_get("person.json").
-		  with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
-		  to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("person.json").
+          with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
+          to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
 
-		stub_get("person.json").
-		  with(:query => {:apiKey => "api_key", :twitter => "brawtest"}).
-		  to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_get("person.json").
+          with(:query => {:apiKey => "api_key", :twitter => "brawtest"}).
+          to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
 
     it "should get the correct resource" do
-      FullContact.person(email:  "brawest@gmail.com")
+      FullContact.person(email: "brawest@gmail.com")
       a_get("person.json")
-	  .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
-	  .should have_been_made
+          .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
+          .should have_been_made
     end
 
     it "should strip the timeoutSeconds parameter" do
-      FullContact.person(email:  "brawest@gmail.com", timeoutSeconds: 30)
+      FullContact.person(email: "brawest@gmail.com", timeoutSeconds: 30)
       a_get("person.json")
-	  .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
-	  .should have_been_made
+          .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
+          .should have_been_made
     end
 
     it "should return the same results as a client by email" do
@@ -42,12 +42,6 @@ describe FullContact do
 
     it "should return the same results as a client by twitter" do
       FullContact.person(:twitter => "brawtest").should == FullContact::Client.new.person(:twitter => "brawtest")
-    end
-  end
-
-  describe '.respond_to?' do
-    it 'takes an optional include private argument' do
-      FullContact.respond_to?(:client, true).should be_true
     end
   end
 
@@ -99,6 +93,12 @@ describe FullContact do
   describe ".user_agent" do
     it "should return the default user agent" do
       FullContact.user_agent.should == FullContact::Configuration::DEFAULT_USER_AGENT
+    end
+  end
+
+  describe ".user_agent" do
+    it "should return the default user agent" do
+      expect(FullContact.user_agent).to satisfy { |ua| ua.start_with? 'FullContact Ruby Client/' }
     end
   end
 
