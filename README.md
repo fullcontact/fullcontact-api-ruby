@@ -64,8 +64,10 @@ Contributions
 - Stefano Fontanelli (stefanofontanelli)
 - John Bachir (jjb)
 
-Copyright
+License
 ---------
-Copyright (c) 2014 FullContact, Brandon West
+Copyright (c) 2014 FullContact Inc. and contributors
 
-See [LICENSE](https://github.com/brandonmwest/rainmaker/blob/master/LICENSE.md) for details.
+
+
+See [LICENSE](https://github.com/fullcontact/fullcontact-api-ruby/blob/master/LICENSE.md) for details.
