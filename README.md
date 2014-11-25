@@ -64,6 +64,7 @@ Usage Examples
 Contributions
 -------------
 - Michael Rose (Xorlev)
+- Brandon West (bwest)
 - Ian Fisher (i-taptera)
 - Scott Watermasysk (scottwater)
 - Stefano Fontanelli (stefanofontanelli)
