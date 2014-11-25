@@ -16,6 +16,7 @@ describe Faraday::Response do
       403 => FullContact::Forbidden,
       404 => FullContact::NotFound,
       422 => FullContact::Invalid,
+      429 => FullContact::RateLimited,
       500 => FullContact::InternalServerError,
       502 => FullContact::BadGateway,
       503 => FullContact::ServiceUnavailable,
