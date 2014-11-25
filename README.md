@@ -9,6 +9,7 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.8.2 - Fix for 0.8.0 constant resolution issue.
 - 0.8.0
     - Hashie now allowed from [2.2, 4.0) to support a wide range of other applications
     - Default useragent includes version number for our own information
