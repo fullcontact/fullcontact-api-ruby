@@ -1,5 +1,5 @@
 require 'faraday'
-require 'version'
+require 'fullcontact/version'
 
 module FullContact
   # Defines constants and methods related to configuration

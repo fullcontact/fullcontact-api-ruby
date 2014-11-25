@@ -4,6 +4,7 @@ require 'fullcontact/error'
 require 'fullcontact/configuration'
 require 'fullcontact/api'
 require 'fullcontact/client'
+require 'fullcontact/version'
 
 module FullContact
   extend Configuration
