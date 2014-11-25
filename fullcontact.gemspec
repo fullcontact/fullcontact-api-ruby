@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.author = 'FullContact, Inc.'
   s.description = %q{A Ruby wrapper for the FullContact API}
   s.email = ['support@fullcontact.com']
+  s.license = 'MIT'
 
   s.post_install_message = ''
 
