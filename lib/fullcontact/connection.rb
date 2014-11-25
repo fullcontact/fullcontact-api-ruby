@@ -1,6 +1,8 @@
 require 'faraday_middleware'
 require 'faraday/request/gateway'
 require 'faraday/response/fullcontact_errors'
+require 'faraday/response/rubyize'
+require 'faraday_middleware/response/mashify'
 
 
 module FullContact
@@ -19,7 +21,8 @@ module FullContact
       Faraday.new(options) do |builder|
         builder.use Faraday::Request::UrlEncoded
         builder.use Faraday::Request::Gateway, gateway if gateway
-        builder.use Faraday::Response::Rashify unless raw
+        builder.use FaradayMiddleware::Mashify unless raw
+        builder.use Faraday::Response::Rubyize unless raw
         unless raw
           case format.to_s.downcase
             when 'json'

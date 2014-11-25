@@ -9,4 +9,29 @@ describe FullContact::Client do
 
     end
   end
+
+  context "when parsing a response" do
+
+    before do
+      FullContact.configure do |config|
+        config.api_key = "api_key"
+      end
+
+      stub_get("person.json").
+          with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
+          to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+
+      stub_get("person.json").
+          with(:query => {:apiKey => "api_key", :twitter => "brawtest"}).
+          to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it 'should rubyize keys' do
+      expect(FullContact.person(email: "brawest@gmail.com").contact_info.given_name).to(eq("Brandon"))
+
+      expect(FullContact.person(email: "brawest@gmail.com")).to satisfy do |v|
+        v.keys.all? { |k| !k.match(/[A-Z]/) }
+      end
+    end
+  end
 end
