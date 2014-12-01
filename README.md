@@ -2,7 +2,7 @@ FullContact Ruby Gem
 ====================
 A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
-
+[![Build Status](https://travis-ci.org/fullcontact/fullcontact-api-ruby.svg?branch=master)](https://travis-ci.org/fullcontact/fullcontact-api-ruby)
 [![Gem Version](https://badge.fury.io/rb/fullcontact.svg)](http://badge.fury.io/rb/fullcontact)
 [![Code Climate](https://codeclimate.com/github/fullcontact/fullcontact-api-ruby/badges/gpa.svg)](https://codeclimate.com/github/fullcontact/fullcontact-api-ruby)
 [![Test Coverage](https://codeclimate.com/github/fullcontact/fullcontact-api-ruby/badges/coverage.svg)](https://codeclimate.com/github/fullcontact/fullcontact-api-ruby)
