@@ -1,6 +1,10 @@
 require 'rspec'
 require 'webmock/rspec'
 require 'simplecov'
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
+
+WebMock.disable_net_connect!(:allow => 'codeclimate.com')
 
 SimpleCov.start
 
