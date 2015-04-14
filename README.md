@@ -9,6 +9,7 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.10.0 - Support for FullContact Company API
 - 0.9.0 - Removed Rash gem and replaced with Mashify + Plisskin
 - 0.8.2 - Fix for 0.8.0 constant resolution issue.
 - 0.8.0
@@ -54,6 +55,9 @@ Usage Examples
     
     # Get information from a phone number
     person6 = FullContact.person(phone:13037170414)
+
+    # Get information about a company
+    company1 = FullContact.company(domain: 'fullcontact.com')
     
     # Get information about a twitter and ensure a 30s socket open timeout and a 15s socket read timeout
     # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded

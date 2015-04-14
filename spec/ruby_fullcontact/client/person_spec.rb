@@ -1,6 +1,6 @@
 require 'helper'
 
-describe FullContact::Client do
+describe FullContact::Client::Person do
   FullContact::Configuration::VALID_FORMATS.each do |format|
     context ".new(:format => '#{format}')" do
       before do

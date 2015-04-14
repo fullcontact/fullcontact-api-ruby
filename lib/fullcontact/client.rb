@@ -6,9 +6,11 @@ module FullContact
     # order to avoid a superclass mismatch error, allowing those modules to be
     # Client-namespaced.
     require 'fullcontact/client/person'
+    require 'fullcontact/client/company'
 
     alias :api_endpoint :endpoint
 
     include FullContact::Client::Person
+    include FullContact::Client::Company
   end
 end
