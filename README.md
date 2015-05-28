@@ -31,50 +31,68 @@ Documentation
 Usage Examples
 --------------
 ```ruby
-    require "fullcontact"
+    require 'fullcontact'
 
     # This could go in an initializer
     FullContact.configure do |config|
-        config.api_key = "fullcontact_api_key_goes_here"
+        config.api_key = 'fullcontact_api_key_goes_here'
     end
 	
     # Get information about an email address
-    person = FullContact.person(email: "brawest@gmail.com")
-    
+    person = FullContact.person(email: 'brawest@gmail.com')
+```
+All returned values are Hashie structs. You can access fields as if they were fields:
+
+```ruby
+    # Get person's family_name
+    person.contact_info.family_name
+     => "West"
+```
+
+But you can also turn it into a normal hash
+
+```ruby
+    # Get person's family_name
+    person.to_hash['contact_info']['family_name']
+     => "West"
+```
+
+There's other ways you can query the Person API:
+```ruby
     # Get information about an email address, organized by hashes vs. lists
-    person2 = FullContact.person(email: "bart@fullcontact.com", style: "dictionary")
+    person2 = FullContact.person(email: 'bart@fullcontact.com', style: 'dictionary')
     
     # You can pass in any arbitrary parameters the Person API supports
-    person3 = FullContact.person(email: "bart@fullcontact.com", style: "dictionary", webhookUrl: "https://...")
+    person3 = FullContact.person(email: 'bart@fullcontact.com', style: 'dictionary', webhookUrl: 'https://...')
     
     # Get information about a twitter handle
-    person4 = FullContact.person(twitter: "brawest")
+    person4 = FullContact.person(twitter: 'brawest')
 
     # Get information about a facebook username
-    person5 = FullContact.person(facebookUsername: "bart.lorang")
+    person5 = FullContact.person(facebookUsername: 'bart.lorang')
     
     # Get information from a phone number
     person6 = FullContact.person(phone:13037170414)
-
-    # Get information about a company
-    company1 = FullContact.company(domain: 'fullcontact.com')
     
     # Get information about a twitter and ensure a 30s socket open timeout and a 15s socket read timeout
     # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded
-    person7 = FullContact.person({:twitter => "brawest"}, {:request => {:timeout => 15, :open_timeout => 30}})
-
-    # Get person's family_name
-    puts person.contact_info.family_name
+    person7 = FullContact.person({:twitter => 'brawest'}, {:request => {:timeout => 15, :open_timeout => 30}})
 ```
+
+You can also query the Company API
+```ruby
+    # Get information about a company
+    company1 = FullContact.company(domain: 'fullcontact.com')
+
+    company1.organization.name
+     => "FullContact Inc."
+```
+
 	
 Contributions
 -------------
-- Michael Rose (Xorlev)
-- Brandon West (bwest)
-- Ian Fisher (i-taptera)
-- Scott Watermasysk (scottwater)
-- Stefano Fontanelli (stefanofontanelli)
-- John Bachir (jjb)
+A full list of contributors can be found in
+[GitHub](https://github.com/fullcontact/fullcontact-api-ruby/graphs/contributors)
 
 License
 ---------
