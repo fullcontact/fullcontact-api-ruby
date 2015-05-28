@@ -96,7 +96,7 @@ A full list of contributors can be found in
 
 License
 ---------
-Copyright (c) 2014 FullContact Inc. and contributors
+Copyright (c) 2015 FullContact Inc. and contributors
 
 
 
