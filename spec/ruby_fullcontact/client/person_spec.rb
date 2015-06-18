@@ -34,4 +34,22 @@ describe FullContact::Client::Person do
       end
     end
   end
+
+  context "when parsing a response without rubyize" do
+
+    before do
+      FullContact.configure do |config|
+        config.api_key = "api_key"
+        config.skip_rubyize = true
+      end
+
+      stub_get("person.json").
+          with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
+          to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it 'should not rubyize keys' do
+      expect(FullContact.person(email: "brawest@gmail.com").contactInfo.givenName).to(eq("Brandon"))
+    end
+  end
 end

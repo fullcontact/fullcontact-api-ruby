@@ -10,6 +10,7 @@ module FullContact
         :api_key,
         :endpoint,
         :format,
+        :skip_rubyize,
         :gateway,
         :proxy,
         :user_agent].freeze
@@ -33,6 +34,9 @@ module FullContact
     #
     # @note JSON is preferred over XML because it is more concise and faster to parse.
     DEFAULT_FORMAT = :json
+
+    # Default transformation done to response
+    DEFAULT_SKIP_RUBYIZE = false
 
     # By default, don't use a proxy server
     DEFAULT_PROXY = nil
@@ -68,6 +72,7 @@ module FullContact
       self.api_key = DEFAULT_API_KEY
       self.endpoint = DEFAULT_ENDPOINT
       self.format = DEFAULT_FORMAT
+      self.skip_rubyize = DEFAULT_SKIP_RUBYIZE
       self.proxy = DEFAULT_PROXY
       self.user_agent = DEFAULT_USER_AGENT
       self.gateway = DEFAULT_GATEWAY

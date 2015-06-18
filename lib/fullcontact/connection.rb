@@ -22,7 +22,7 @@ module FullContact
         builder.use Faraday::Request::UrlEncoded
         builder.use Faraday::Request::Gateway, gateway if gateway
         builder.use FaradayMiddleware::Mashify unless raw
-        builder.use Faraday::Response::Rubyize unless raw
+        builder.use Faraday::Response::Rubyize unless raw or FullContact.skip_rubyize
         unless raw
           case format.to_s.downcase
             when 'json'

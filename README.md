@@ -9,6 +9,7 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.11.0 - Plisskin transformation can be disabled by specifying a `skip_rubyize = true` in config block.
 - 0.10.0 - Support for FullContact Company API
 - 0.9.0 - Removed Rash gem and replaced with Mashify + Plisskin
 - 0.8.2 - Fix for 0.8.0 constant resolution issue.
@@ -77,6 +78,21 @@ There's other ways you can query the Person API:
     # Get information about a twitter and ensure a 30s socket open timeout and a 15s socket read timeout
     # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded
     person7 = FullContact.person({:twitter => "bartlorang"}, {:request => {:timeout => 15, :open_timeout => 30}})
+
+```
+
+Response formats can more closely mirror FullContact's APIs by disabling snake_case transformation:
+```ruby
+    FullContact.configure do |config|
+        config.api_key = "fullcontact_api_key_goes_here"
+        config.skip_rubyize = true
+    end
+
+    person8 = FullContact.person(email: "bart@fullcontact.com")
+
+    => #<Hashie::Mash contactInfo=#<Hashie::Mash chats=[#<Hashie::Mash client="gtalk" handle="lorangb@gmail.com">, 
+    #<Hashie::Mash client="skype" handle="bart.lorang">] familyName="Lorang" fullName="Bart Lorang" givenName="Bart...
+```
 
 You can also query the Company API
 ```ruby
