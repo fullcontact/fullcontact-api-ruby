@@ -39,14 +39,14 @@ Usage Examples
     end
 	
     # Get information about an email address
-    person = FullContact.person(email: 'brawest@gmail.com')
+    person = FullContact.person(email: 'bart@fullcontact.com')
 ```
 All returned values are Hashie structs. You can access fields as if they were fields:
 
 ```ruby
     # Get person's family_name
     person.contact_info.family_name
-     => "West"
+     => "Lorang"
 ```
 
 But you can also turn it into a normal hash
@@ -54,7 +54,7 @@ But you can also turn it into a normal hash
 ```ruby
     # Get person's family_name
     person.to_hash['contact_info']['family_name']
-     => "West"
+     => "Lorang"
 ```
 
 There's other ways you can query the Person API:
@@ -66,7 +66,7 @@ There's other ways you can query the Person API:
     person3 = FullContact.person(email: 'bart@fullcontact.com', style: 'dictionary', webhookUrl: 'https://...')
     
     # Get information about a twitter handle
-    person4 = FullContact.person(twitter: 'brawest')
+    person4 = FullContact.person(twitter: "bartlorang")
 
     # Get information about a facebook username
     person5 = FullContact.person(facebookUsername: 'bart.lorang')
@@ -76,8 +76,7 @@ There's other ways you can query the Person API:
     
     # Get information about a twitter and ensure a 30s socket open timeout and a 15s socket read timeout
     # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded
-    person7 = FullContact.person({:twitter => 'brawest'}, {:request => {:timeout => 15, :open_timeout => 30}})
-```
+    person7 = FullContact.person({:twitter => "bartlorang"}, {:request => {:timeout => 15, :open_timeout => 30}})
 
 You can also query the Company API
 ```ruby
