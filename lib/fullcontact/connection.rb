@@ -1,6 +1,7 @@
 require 'faraday_middleware'
 require 'faraday/request/gateway'
 require 'faraday/response/fullcontact_errors'
+require 'faraday/response/add_headers'
 require 'faraday/response/rubyize'
 require 'faraday_middleware/response/mashify'
 
@@ -22,6 +23,7 @@ module FullContact
         builder.use Faraday::Request::UrlEncoded
         builder.use Faraday::Request::Gateway, gateway if gateway
         builder.use FaradayMiddleware::Mashify unless raw
+        builder.use Faraday::Response::AddHeaders if FullContact.include_headers_in_response
         builder.use Faraday::Response::Rubyize unless raw or FullContact.skip_rubyize
         unless raw
           case format.to_s.downcase

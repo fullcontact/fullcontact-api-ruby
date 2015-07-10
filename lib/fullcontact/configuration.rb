@@ -11,6 +11,7 @@ module FullContact
         :endpoint,
         :format,
         :skip_rubyize,
+        :include_headers_in_response,
         :gateway,
         :proxy,
         :user_agent].freeze
@@ -37,6 +38,9 @@ module FullContact
 
     # Default transformation done to response
     DEFAULT_SKIP_RUBYIZE = false
+
+    # Includes response headers
+    DEFAULT_INCLUDE_HEADERS_IN_RESPONSE = false
 
     # By default, don't use a proxy server
     DEFAULT_PROXY = nil
@@ -73,6 +77,7 @@ module FullContact
       self.endpoint = DEFAULT_ENDPOINT
       self.format = DEFAULT_FORMAT
       self.skip_rubyize = DEFAULT_SKIP_RUBYIZE
+      self.include_headers_in_response = DEFAULT_INCLUDE_HEADERS_IN_RESPONSE
       self.proxy = DEFAULT_PROXY
       self.user_agent = DEFAULT_USER_AGENT
       self.gateway = DEFAULT_GATEWAY

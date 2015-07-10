@@ -9,6 +9,8 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.12.0 - `include_headers_in_response = true` includes response headers in returned payload
+ - Accessible as `http_headers` in response. Also accessible on thrown errors (e.g. RateLimited)
 - 0.11.0 - Plisskin transformation can be disabled by specifying a `skip_rubyize = true` in config block.
 - 0.10.0 - Support for FullContact Company API
 - 0.9.0 - Removed Rash gem and replaced with Mashify + Plisskin

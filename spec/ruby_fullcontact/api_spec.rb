@@ -36,7 +36,8 @@ describe FullContact::API do
             :format => :xml,
             :proxy => 'http://erik:sekret@proxy.example.com:8080',
             :user_agent => 'Custom User Agent',
-            :skip_rubyize => true
+            :skip_rubyize => true,
+            :include_headers_in_response => true
         }
       end
 

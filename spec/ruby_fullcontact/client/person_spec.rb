@@ -52,4 +52,23 @@ describe FullContact::Client::Person do
       expect(FullContact.person(email: "brawest@gmail.com").contactInfo.givenName).to(eq("Brandon"))
     end
   end
+
+  context "with headers enabled" do
+
+    before do
+      FullContact.configure do |config|
+        config.api_key = "api_key"
+        config.include_headers_in_response = true
+      end
+
+      stub_get("person.json").
+          with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"}).
+          to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+    end
+
+    it 'should include http headers from response' do
+      expect(FullContact.person(email: "brawest@gmail.com").http_headers['content-type'])
+          .to(eq("application/json; charset=utf-8"))
+    end
+  end
 end
