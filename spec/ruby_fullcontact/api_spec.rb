@@ -30,6 +30,7 @@ describe FullContact::API do
       before do
         @configuration = {
             :api_key => 'api_key',
+            :auth_type => :headers,
             :adapter => :typhoeus,
             :endpoint => 'http://tumblr.com/',
             :gateway => 'apigee-1111.apigee.com',
