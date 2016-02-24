@@ -9,6 +9,9 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.13.0
+    - Raise `ArgumentError` if query by Facebook ID/username is used.
+    - Remove deprecated messages.
 - 0.12.0 - `include_headers_in_response = true` includes response headers in returned payload
  - Accessible as `http_headers` in response. Also accessible on thrown errors (e.g. RateLimited)
 - 0.11.0 - Plisskin transformation can be disabled by specifying a `skip_rubyize = true` in config block.
@@ -70,9 +73,6 @@ There's other ways you can query the Person API:
     
     # Get information about a twitter handle
     person4 = FullContact.person(twitter: "bartlorang")
-
-    # Get information about a facebook username
-    person5 = FullContact.person(facebookUsername: 'bart.lorang')
     
     # Get information from a phone number
     person6 = FullContact.person(phone:13037170414)
@@ -113,7 +113,7 @@ A full list of contributors can be found in
 
 License
 ---------
-Copyright (c) 2015 FullContact Inc. and contributors
+Copyright (c) 2016 FullContact Inc. and contributors
 
 
 

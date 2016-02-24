@@ -71,4 +71,23 @@ describe FullContact::Client::Person do
           .to(eq("application/json; charset=utf-8"))
     end
   end
+
+  context "facebook queries removed" do
+
+    before do
+      FullContact.configure do |config|
+        config.api_key = "api_key"
+      end
+    end
+
+    it 'should not allow querying by facebookUsername' do
+      expect { FullContact.person(facebookUsername: "brawest") }.to raise_error(ArgumentError)
+
+    end
+
+    it 'should not allow querying by facebookId' do
+      expect { FullContact.person(facebookId: "123") }.to raise_error(ArgumentError)
+
+    end
+  end
 end

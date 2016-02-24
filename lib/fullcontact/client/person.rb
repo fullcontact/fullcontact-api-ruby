@@ -5,13 +5,11 @@ module FullContact
       #
       def person(options={}, faraday_options={})
         if options.is_a?(String)
-          warn "[DEPRECATION] supplying an email address directly is deprecated. Please use {email: #{options}} instead. This will be removed in 0.9.0."
-          options = {:email => options}
+          raise ArgumentError, "Supplying an email address directly is not supported. Please use {email: #{options}} instead."
         end
 
-        if options.has_key?(:timeoutSeconds)
-          options.delete(:timeoutSeconds)
-          warn '[DEPRECATION] timeoutSeconds is no longer a supported parameter. It has been removed from your request.'
+        if options.has_key?(:facebookUsername) || options.has_key?(:facebookId)
+          raise ArgumentError, "Querying by Facebook ID or username is no longer supported. Please contact support@fullcontact.com for more information."
         end
 
         response = get('person', options, false, faraday_options)

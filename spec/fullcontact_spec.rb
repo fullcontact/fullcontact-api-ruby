@@ -29,13 +29,6 @@ describe FullContact do
           .should have_been_made
     end
 
-    it "should strip the timeoutSeconds parameter" do
-      FullContact.person(email: "brawest@gmail.com", timeoutSeconds: 30)
-      a_get("person.json")
-          .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
-          .should have_been_made
-    end
-
     it "should return the same results as a client by email" do
       FullContact.person(:email => "brawest@gmail.com").should == FullContact::Client.new.person(:email => "brawest@gmail.com")
     end
