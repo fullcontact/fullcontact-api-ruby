@@ -1,5 +1,3 @@
-require 'plissken'
-
 module Faraday
   class Response::Rubyize < Response::Middleware
     def parse(body)

@@ -1,5 +1,6 @@
 require 'faraday'
 require 'faraday_middleware'
+require 'fullcontact/ext/hash/to_snake_keys'
 require 'fullcontact/error'
 require 'fullcontact/configuration'
 require 'fullcontact/api'
