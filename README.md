@@ -9,6 +9,8 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.14.0
+    - Remove `plissken` gem to support Rails 5 (#42)
 - 0.13.0
     - Raise `ArgumentError` if query by Facebook ID/username is used.
     - Remove deprecated messages.
