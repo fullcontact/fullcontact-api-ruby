@@ -64,6 +64,15 @@ But you can also turn it into a normal hash
     person.to_hash['contact_info']['family_name']
      => "Lorang"
 ```
+Authentication is done through query parameters by default. If you want to use headers instead:
+
+```ruby
+    # This could go in an initializer
+    FullContact.configure do |config|
+        config.api_key = 'fullcontact_api_key_goes_here'
+        config.authentication_method = :headers # :header or :query
+    end
+```
 
 There's other ways you can query the Person API:
 ```ruby

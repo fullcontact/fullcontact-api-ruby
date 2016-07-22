@@ -8,6 +8,7 @@ module FullContact
     VALID_OPTIONS_KEYS = [
         :adapter,
         :api_key,
+        :auth_type,
         :endpoint,
         :format,
         :skip_rubyize,
@@ -26,6 +27,9 @@ module FullContact
 
     # By default, don't set an application key
     DEFAULT_API_KEY = nil
+
+    # By default, use query parameters
+    DEFAULT_AUTH_TYPE = :query
 
     # The endpoint that will be used to connect if none is set
     #
@@ -49,6 +53,8 @@ module FullContact
     DEFAULT_USER_AGENT = "FullContact Ruby Client/#{FullContact::VERSION}".freeze
 
     DEFAULT_GATEWAY = nil
+
+    AUTH_HEADER_NAME = 'X-FullContact-APIKey'.freeze
 
     # @private
     attr_accessor *VALID_OPTIONS_KEYS
@@ -74,6 +80,7 @@ module FullContact
     def reset
       self.adapter = DEFAULT_ADAPTER
       self.api_key = DEFAULT_API_KEY
+      self.auth_type = DEFAULT_AUTH_TYPE
       self.endpoint = DEFAULT_ENDPOINT
       self.format = DEFAULT_FORMAT
       self.skip_rubyize = DEFAULT_SKIP_RUBYIZE

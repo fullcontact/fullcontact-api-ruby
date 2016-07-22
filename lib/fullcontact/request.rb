@@ -10,10 +10,16 @@ module FullContact
 
     # Perform an HTTP request
     def request(method, path, options, raw=false, faraday_options={})
-      options[:apiKey] = FullContact.options[:api_key]
+      if FullContact.options[:auth_type] == :query
+        options[:apiKey] = FullContact.options[:api_key]
+      end
 
       response = connection(raw, faraday_options).send(method) do |request|
         request.url(formatted_path(path), options)
+
+        if FullContact.options[:auth_type] == :header
+          request.headers[FullContact::Configuration::AUTH_HEADER_NAME] = FullContact.options[:api_key]
+        end
       end
 
       raw ? response : response.body
