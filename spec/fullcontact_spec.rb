@@ -20,13 +20,41 @@ describe FullContact do
       stub_get("person.json").
           with(:query => {:apiKey => "api_key", :twitter => "brawtest"}).
           to_return(:body => fixture("person.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+
+      stub_get("person.json").
+          with(:query => {:email => "brawest@gmail.com"})
     end
 
-    it "should get the correct resource" do
-      FullContact.person(email: "brawest@gmail.com")
-      a_get("person.json")
-          .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
-          .should have_been_made
+    context "when using query auth type" do
+
+      before do
+        FullContact.configure do |config|
+          config.auth_type = :query
+        end
+      end
+
+      it "should get the correct resource" do
+        FullContact.person(email: "brawest@gmail.com")
+        a_get("person.json")
+            .with(:query => {:apiKey => "api_key", :email => "brawest@gmail.com"})
+            .should have_been_made
+      end
+    end
+
+    context "when using header auth type" do
+
+      before do
+        FullContact.configure do |config|
+          config.auth_type = :header
+        end
+      end
+
+      it "should get the correct resource" do
+        FullContact.person(email: "brawest@gmail.com")
+        a_get("person.json")
+            .with(:query => {:email => "brawest@gmail.com"}, :headers => {:'X-Fullcontact-Apikey'=>'api_key'})
+            .should have_been_made
+      end
     end
 
     it "should return the same results as a client by email" do

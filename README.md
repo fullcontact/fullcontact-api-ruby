@@ -45,7 +45,7 @@ Usage Examples
     FullContact.configure do |config|
         config.api_key = 'fullcontact_api_key_goes_here'
     end
-	
+
     # Get information about an email address
     person = FullContact.person(email: 'bart@fullcontact.com')
 ```
@@ -70,7 +70,7 @@ Authentication is done through query parameters by default. If you want to use h
     # This could go in an initializer
     FullContact.configure do |config|
         config.api_key = 'fullcontact_api_key_goes_here'
-        config.authentication_method = :headers # :header or :query
+        config.auth_type = :headers # :header or :query
     end
 ```
 
@@ -78,16 +78,16 @@ There's other ways you can query the Person API:
 ```ruby
     # Get information about an email address, organized by hashes vs. lists
     person2 = FullContact.person(email: 'bart@fullcontact.com', style: 'dictionary')
-    
+
     # You can pass in any arbitrary parameters the Person API supports
     person3 = FullContact.person(email: 'bart@fullcontact.com', style: 'dictionary', webhookUrl: 'https://...')
-    
+
     # Get information about a twitter handle
     person4 = FullContact.person(twitter: "bartlorang")
-    
+
     # Get information from a phone number
     person6 = FullContact.person(phone:13037170414)
-    
+
     # Get information about a twitter and ensure a 30s socket open timeout and a 15s socket read timeout
     # Can throw a Faraday::Error::TimeoutError if timeouts are exceeded
     person7 = FullContact.person({:twitter => "bartlorang"}, {:request => {:timeout => 15, :open_timeout => 30}})
@@ -103,7 +103,7 @@ Response formats can more closely mirror FullContact's APIs by disabling snake_c
 
     person8 = FullContact.person(email: "bart@fullcontact.com")
 
-    => #<Hashie::Mash contactInfo=#<Hashie::Mash chats=[#<Hashie::Mash client="gtalk" handle="lorangb@gmail.com">, 
+    => #<Hashie::Mash contactInfo=#<Hashie::Mash chats=[#<Hashie::Mash client="gtalk" handle="lorangb@gmail.com">,
     #<Hashie::Mash client="skype" handle="bart.lorang">] familyName="Lorang" fullName="Bart Lorang" givenName="Bart...
 ```
 
@@ -116,7 +116,7 @@ You can also query the Company API
      => "FullContact Inc."
 ```
 
-	
+
 Contributions
 -------------
 A full list of contributors can be found in
