@@ -9,6 +9,7 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.16.0 - Upgrade Farady plugin to ~> 0.10.0.
 - 0.15.0 - Add header-based auth via `config.auth_type = :header` control.
 - 0.14.0 - Remove `plissken` gem to support Rails 5 (#42)
 - 0.13.0
