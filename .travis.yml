@@ -16,3 +16,6 @@ cache: bundler
 before_script: "bundle update"
 
 script: "bundle exec rake test"
+
+after_success:
+  - "bundle exec codeclimate-test-reporter"
