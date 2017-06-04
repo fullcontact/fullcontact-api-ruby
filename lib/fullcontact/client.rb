@@ -7,10 +7,12 @@ module FullContact
     # Client-namespaced.
     require 'fullcontact/client/person'
     require 'fullcontact/client/company'
+    require 'fullcontact/client/name'
 
     alias :api_endpoint :endpoint
 
     include FullContact::Client::Person
     include FullContact::Client::Company
+    include FullContact::Client::Name
   end
 end
