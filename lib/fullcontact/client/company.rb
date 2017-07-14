@@ -9,7 +9,7 @@ module FullContact
           url = "company/search"
         end
         response = get(url, options, false, faraday_options)
-        format.to_s.downcase == 'xml' ? response['person'] : response
+        format.to_s.downcase == 'xml' ? response['response'] : response
       end
     end
   end
