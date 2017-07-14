@@ -9,6 +9,9 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.18.0
+    - Add ability to query Company API by company name
+    - Fix XML bug in Company API module
 - 0.17.0 - Upgrade Faraday plugin to ~> 0.11.0
 - 0.16.0 - Upgrade Faraday plugin to ~> 0.10.0.
 - 0.15.0 - Add header-based auth via `config.auth_type = :header` control.
@@ -17,7 +20,7 @@ Changes
     - Raise `ArgumentError` if query by Facebook ID/username is used.
     - Remove deprecated messages.
 - 0.12.0 - `include_headers_in_response = true` includes response headers in returned payload
- - Accessible as `http_headers` in response. Also accessible on thrown errors (e.g. RateLimited)
+    - Accessible as `http_headers` in response. Also accessible on thrown errors (e.g. RateLimited)
 - 0.11.0 - Plisskin transformation can be disabled by specifying a `skip_rubyize = true` in config block.
 - 0.10.0 - Support for FullContact Company API
 - 0.9.0 - Removed Rash gem and replaced with Mashify + Plisskin
