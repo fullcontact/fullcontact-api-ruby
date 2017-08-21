@@ -128,7 +128,7 @@ Please see [our API documentation](https://www.fullcontact.com/developer/docs/co
     companies = FullContact.company(companyName: 'FullContact')
 
     # Get the API url for full company profile lookup (append api key to use)
-    # Note the array acces, we are just grabbing the first (top) result
+    # Note the array access, we are just grabbing the first (top) result
     companies[0].company_api_link
      => "https://api.fullcontact.com/v2/company/lookup?domain=fullcontact.com&apiKey="
 
