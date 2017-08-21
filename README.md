@@ -124,10 +124,15 @@ You can also query the Company API
 The Company API also supports searching by company name.
 Please see [our API documentation](https://www.fullcontact.com/developer/docs/company/#lookup-by-company-name) for more details.
 ```ruby
-    # Get information about a company
-    company1 = FullContact.company(companyName: 'FullContact')
+    # Gets a list of search results for a company name ordered by relevance
+    companies = FullContact.company(companyName: 'FullContact')
 
-    company1.organization.name
+    # Get the API url for full company profile lookup (append api key to use)
+    # Note the array acces, we are just grabbing the first (top) result
+    companies[0].company_api_link
+     => "https://api.fullcontact.com/v2/company/lookup?domain=fullcontact.com&apiKey="
+
+    companies[0].org_name
      => "FullContact Inc."
 ```
 
