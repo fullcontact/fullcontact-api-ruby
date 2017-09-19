@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'webmock', '~> 1.6'
   s.add_development_dependency 'yard', '~> 0.7'
   s.add_runtime_dependency 'hashie', ['>= 2.0', '< 4.0']
-  s.add_runtime_dependency 'faraday', '~> 0.11.0'
+  s.add_runtime_dependency 'faraday', '~> 0.12.1'
   s.add_runtime_dependency 'faraday_middleware', '>= 0.10'
 
   s.author = 'FullContact, Inc.'
