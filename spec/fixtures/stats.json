@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "periodStart": "2012-11-01T00:00:00 -0600",
+  "periodEnd": "2012-11-30T23:59:59 -0700",
+  "plan": "Fictitious $99.00/mo with $0.03 overage",
+  "planBasePrice": 99,
+  "planOveragePrice": 0.03,
+  "applicationId": "xxxxxxxxxxxxx",
+  "metrics":
+  [
+    {
+      "metricName": "Success - Basic (\"200\")",
+      "metricId": "200",
+      "planLevel": 10000,
+      "usage": 170,
+      "remaining": 9830,
+      "overage": 0
+    },
+    {
+      "metricName": "Success - No Charge (\"200\")",
+      "metricId": "200_free",
+      "usage": 0
+    },
+    {
+      "metricName": "Bad Request (\"400\")",
+      "metricId": "400",
+      "usage": 0
+    },
+    {
+      "metricName": "Success - Enhanced (\"200\")",
+      "metricId": "enhanced_200",
+      "usage": 0
+    },
+    {
+      "metricName": "Success - Card Reader (\"202\")",
+      "metricId": "202_CardShark",
+      "usage": 0
+    },
+    {
+      "metricName": "Queued (\"202\")",
+      "metricId": "202",
+      "usage": 9
+    },
+    {
+      "metricName": "Not Found (\"404\")",
+      "metricId": "404",
+      "usage": 36
+    }
+  ]
+}
