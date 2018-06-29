@@ -9,6 +9,8 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.19.0
+    - Add Account Stats API support for Full Contact
 - 0.18.0
     - Add ability to query Company API by company name
     - Fix XML bug in Company API module
@@ -119,6 +121,15 @@ You can also query the Company API
 
     company1.organization.name
      => "FullContact Inc."
+```
+
+You can also query the Account Stats API
+```ruby
+    # Get information about the current month
+    stats1 = FullContact.stats
+
+    # Get information about a specific month
+    stats2 = FullContact.stats(period: '2012-08')
 ```
 
 The Company API also supports searching by company name.
