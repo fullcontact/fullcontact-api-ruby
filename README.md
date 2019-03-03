@@ -9,6 +9,8 @@ A Ruby wrapper for the [FullContact API](http://www.fullcontact.com/)
 
 Changes
 -------
+- 0.18.1
+  - Always use the token in header even when the option is given as query.
 - 0.18.0
     - Add ability to query Company API by company name
     - Fix XML bug in Company API module
